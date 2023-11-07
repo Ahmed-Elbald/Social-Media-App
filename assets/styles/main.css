@@ -846,7 +846,7 @@ template {
   align-items: center;
 }
 .l-section:is([data-name=hero], [data-height=fill])[data-name=hero] {
-  padding-block-start: calc(var(--padding-block) * 1.5);
+  padding-block-start: calc(var(--padding-block) * 4);
 }
 
 .l-grid-centering {
