@@ -227,7 +227,7 @@ async function getImgFiller() {
   // An image that I send to the server to get set
   // as a post image if there's no post image
 
-  const request = await fetch("./../../images/post-img-filler.jpg");
+  const request = await fetch("./assets/images/post-img-filler.jpg");
   const fileAsBlob = await request.blob();
 
   return new File(
