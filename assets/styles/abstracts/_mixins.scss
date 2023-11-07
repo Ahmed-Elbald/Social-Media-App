@@ -1,0 +1,260 @@
+@use "./variables" as *;
+
+// Tokens
+$box: (
+  defaultPadding: var(--spacer-300),
+  bgClr: hsl(var(--clr-neu-100)),
+  borderRad: var(--radius-regular),
+  boxShadow: var(--shadow-regular),
+);
+
+// Mixins
+@mixin prefix($property, $value) {
+  -webkit-#{$property}: $value;
+  -moz-#{$property}: $value;
+  -ms-#{$property}: $value;
+  -o-#{$property}: $value;
+  #{$property}: $value;
+}
+
+@mixin gridCentering() {
+  display: grid;
+  place-items: center;
+}
+
+@mixin flexCentering() {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@mixin flexBetween($centerVertically: true) {
+  display: flex;
+  justify-content: space-between;
+
+  @if ($centerVertically ==true) {
+    align-items: center;
+  }
+}
+
+@mixin positionCentering() {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  @include prefix(transform, translate(-50%, -50%));
+}
+
+@mixin pseudoElement($content) {
+  content: $content;
+  position: absolute;
+}
+
+@mixin circle($diameter) {
+  border-radius: 50%;
+  width: $diameter;
+  height: $diameter;
+}
+
+@mixin lineBetween() {
+  padding-block: var(--padding-block);
+
+  &:not([data-last="true"]) {
+    border-bottom: 1px solid var(--lineClr);
+  }
+}
+
+@mixin flexCluster($justify: center) {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--clusterSpacer);
+  justify-content: $justify;
+}
+
+@mixin flexSpacer() {
+  display: flex;
+  flex-direction: column;
+  gap: var(--flexSpacer, var(--spacer-200));
+
+  @include smOnly($layoutSwitchBp) {
+    --flexSpacer: 0;
+  }
+}
+
+@mixin gridSpacer() {
+  display: grid;
+  row-gap: var(--gridSpacer, var(--spacer-200));
+
+  @include smOnly($layoutSwitchBp) {
+    --gridSpacer: 0;
+  }
+}
+
+@mixin marginSpacer() {
+  > * {
+    margin-block-start: var(--marginSpacer, var(--spacer-200));
+
+    &:first-child {
+      margin-block-start: 0;
+    }
+  }
+
+  @include smOnly($layoutSwitchBp) {
+    > * {
+      margin-block-start: 0;
+    }
+  }
+}
+
+@mixin gridSwitch() {
+  display: grid;
+  align-items: center;
+  row-gap: var(--rowGap);
+
+  @include min-mq($layoutSwitchBp) {
+    grid-auto-flow: column;
+    grid-auto-columns: 1fr;
+    column-gap: var(--columnGap);
+  }
+}
+
+@mixin gridAutoFit($min, $gap) {
+  display: grid;
+  gap: $gap;
+  grid-template-columns: repeat(auto-fit, minmax(min($min, 100%), 1fr));
+}
+
+@mixin min-mq($device) {
+  $size: map-get(
+    $map: $breakpoints,
+    $key: $device,
+  );
+
+  @media (min-width: $size) {
+    @content;
+  }
+}
+
+@mixin max-mq($device) {
+  $size: map-get(
+    $map: $breakpoints,
+    $key: $device,
+  );
+
+  @media (max-width: $size) {
+    @content;
+  }
+}
+
+@mixin minmax-mq($min-device, $max-device) {
+  $min-size: map-get(
+    $map: $breakpoints,
+    $key: $min-device,
+  );
+  $max-size: map-get(
+    $map: $breakpoints,
+    $key: $max-device,
+  );
+
+  @media (min-width: $min-size) and (max-width: $max-size) {
+    @content;
+  }
+}
+
+@mixin triangleDirection($direction, $color) {
+}
+
+@mixin triangle($size, $color, $direction) {
+  border: $size solid transparent;
+  border-#{$direction}-color: $color;
+}
+
+@mixin overlay($bgClr: hsl(0 0% 100% / 0.125)) {
+  position: absolute;
+  inset: 0;
+  background-color: $bgClr;
+}
+
+@mixin smOnly($bp) {
+  &[data-sm-only] {
+    @include min-mq($bp) {
+      @content;
+    }
+  }
+}
+
+@mixin hide($visually: false) {
+  opacity: 0;
+  pointer-events: none;
+
+  @if ($visually ==false) {
+    visibility: hidden;
+  }
+}
+
+@mixin showUp() {
+  visibility: visible;
+  opacity: 1;
+  pointer-events: all;
+}
+
+@mixin animateHeight() {
+  display: grid;
+  grid-template-rows: 0fr;
+
+  &.js-grow {
+    grid-template-rows: 1fr;
+  }
+}
+
+@mixin heading($size) {
+  overflow-wrap: anywhere;
+
+  @if ($size ==1) {
+    font-size: var(--fs-1000);
+    font-weight: var(--fw-extra-bold, var(--fw-bold), 900);
+  } @else if ($size ==2) {
+    font-size: var(--fs-900);
+    font-weight: var(--fw-bold, 700);
+  } @else if ($size ==3) {
+    font-size: var(--fs-800);
+    font-weight: var(--fw-bold, 700);
+  } @else if ($size == 4) {
+    font-size: var(--fs-500);
+    font-weight: var(--fw-semi-bold, 600);
+  }
+}
+
+@mixin textCenter($smallScreensOnly: false) {
+  text-align: center;
+
+  @if ($smallScreensOnly ==true) {
+    @include min-mq($layoutSwitchBp) {
+      text-align: unset;
+    }
+  }
+
+  @include smOnly($layoutSwitchBp) {
+    text-align: unset;
+  }
+}
+
+@mixin createBox($padding: map-get($map: $box, $key: defaultPadding)) {
+  padding: $padding;
+  background-color: map-get($map: $box, $key: bgClr);
+  border-radius: map-get($map: $box, $key: borderRad);
+  box-shadow: map-get($map: $box, $key: boxShadow);
+}
+
+@mixin screenReaderOnly() {
+  border: 0 !important;
+  clip: rect(1px, 1px, 1px, 1px) !important;
+  -webkit-clip-path: inset(50%) !important;
+  clip-path: inset(50%) !important;
+  height: 1px !important;
+  overflow: hidden !important;
+  margin: -1px !important;
+  padding: 0 !important;
+  position: absolute !important;
+  width: 1px !important;
+  white-space: nowrap !important;
+}

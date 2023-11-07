@@ -1,0 +1,33 @@
+@use "../abstracts" as *;
+
+/* Sing Up Page */
+.signup-page {
+  &__tagline {
+    margin-bottom: var(--spacer-400);
+  }
+
+  &__intro-statement {
+    line-height: 1.5;
+  }
+
+  #profile-img-input {
+    position: relative;
+    margin-block: var(--spacer-300) var(--spacer-700);
+
+    .c-img-input {
+      --clusterSpacer: var(--spacer-200);
+      @include flexCluster(flex-start);
+    }
+
+    .c-img-remover {
+      padding-inline: var(--spacer-200);
+    }
+
+    &::before {
+      @include pseudoElement(attr(data-img-name));
+      inset-inline-start: 0;
+      inset-block-start: calc(100% + var(--spacer-200));
+      font-size: var(--fs-300);
+    }
+  }
+}

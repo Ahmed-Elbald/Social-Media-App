@@ -1,0 +1,42 @@
+@use "../abstracts/" as *;
+
+/* Accessibility */
+.c-accessibility-link {
+  position: absolute;
+  top: -200px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: block;
+  @include createBox(map-get($map: $accessLinks, $key: padding));
+  z-index: map-get($map: $zIndex, $key: accessibilityLink);
+
+  &:focus {
+    top: map-get($map: $accessLinks, $key: topOffset);
+  }
+}
+
+.c-stt-btn {
+  // Scroll To Top Button
+  position: fixed;
+  padding: map-get($map: $sttBtn, $key: padding);
+  border-radius: map-get($map: $sttBtn, $key: borderRad);
+  bottom: map-get($map: $sttBtn, $key: bottomOffset);
+  inset-inline-end: map-get($map: $sttBtn, $key: inlineOffset);
+  background-color: map-get($map: $sttBtn, $key: bgClr);
+  color: map-get($map: $sttBtn, $key: color);
+  @include prefix(text-stroke, 1px);
+  @include hide();
+
+  &.js-show-up {
+    @include showUp();
+  }
+}
+
+.c-srn {
+  @include screenReaderOnly();
+  visibility: hidden;
+
+  &.js-show-up {
+    visibility: visible;
+  }
+}

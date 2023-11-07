@@ -1,0 +1,17 @@
+@use "../abstracts/" as *;
+
+.c-heading-1 {
+  @include heading(1);
+}
+
+.c-heading-2 {
+  @include heading(2);
+}
+
+.c-heading-3 {
+  @include heading(3);
+}
+
+.c-heading-4 {
+  @include heading(4);
+}

@@ -1,0 +1,16 @@
+@use "../abstracts" as *;
+
+.l-section {
+  --padding-block: #{map-get($map: $section, $key: paddingBlock)};
+
+  padding-block: var(--padding-block);
+
+  &:is([data-name="hero"], [data-height="fill"]) {
+    min-height: 100vh;
+    @include flexCentering();
+
+    &[data-name="hero"] {
+      padding-block-start: calc(var(--padding-block) * 1.5);
+    }
+  }
+}

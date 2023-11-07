@@ -1,0 +1,248 @@
+@use "../abstracts/" as *;
+
+.c-signing-form {
+  &__content {
+    @include createBox();
+    margin-block: map-get($map: $signingForm, $key: marginBlock);
+  }
+
+  &__fields {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: map-get($map: $signingForm, $key: fieldsGap);
+    margin-bottom: map-get($map: $signingForm, $key: fieldsContainerMargin);
+  }
+
+  &__field[data-column="fluid"] {
+    grid-column: span 2;
+  }
+
+  @include max-mq(mobile) {
+    &__field {
+      grid-column: span 2;
+    }
+  }
+
+  &__submit-btn {
+    margin-inline: auto;
+  }
+
+  &__heading,
+  &__cta {
+    @include textCenter(true);
+  }
+
+  &__heading {
+    color: map-get($map: $signingForm, $key: headingClr);
+  }
+}
+
+.c-input {
+  width: 100%;
+  margin-block-start: map-get($map: $input, $key: marginBlock);
+  padding: map-get($map: $input, $key: padding);
+  background-color: map-get($map: $input, $key: bgClr);
+  color: map-get($map: $input, $key: color);
+  border: map-get($map: $input, $key: border);
+  caret-color: map-get($map: $input, $key: color);
+
+  &::placeholder {
+    color: currentColor;
+  }
+}
+
+.c-img-input {
+  label {
+    padding: map-get($map: $imgInput, $key: padding);
+    border-radius: map-get($map: $imgInput, $key: borderRad);
+    display: inline-block;
+    background-color: map-get($map: $imgInput, $key: bgClr);
+    cursor: pointer;
+    outline: $focusStateOulineWidth solid transparent;
+    outline-offset: -$focusStateOulineWidth;
+  }
+
+  &:has(input:focus) label {
+    outline-color: currentColor;
+  }
+
+  input {
+    @include screenReaderOnly();
+  }
+}
+
+.c-input-group {
+  --arrowHeight: #{map-get($map: $inputGroup, $key: arrowHeight)};
+  --msgHolderBgClr: #{map-get($map: $inputGroup, $key: msgHolderBgClr)};
+  --msgHolderClr: #{map-get($map: $inputGroup, $key: msgHolderClr)};
+
+  --arrowYOffset: 100%;
+  --msgHolderYOffset: calc(var(--arrowYOffset) + 2 * var(--arrowHeight) - 2px);
+  --errorMessage: "";
+
+  position: relative;
+
+  &:has(label) {
+    --arrowYOffset: calc(100% - 3 * var(--arrowHeight));
+  }
+
+  &::before,
+  &::after {
+    @include pseudoElement("");
+    @include hide();
+    transition-duration: 250ms;
+  }
+
+  &.js-not-valid::before,
+  &.js-not-valid::after {
+    @include showUp();
+  }
+
+  &::before {
+    inset-inline-end: map-get($map: $inputGroup, $key: arrowInlineInset);
+    bottom: var(--arrowYOffset);
+    @include triangle(var(--arrowHeight), var(--msgHolderBgClr), top);
+  }
+
+  &::after {
+    content: var(--errorMessage);
+    inset-inline-end: 0;
+    bottom: var(--msgHolderYOffset);
+    padding: map-get($map: $inputGroup, $key: msgHolderPadding);
+    border-radius: map-get($map: $inputGroup, $key: msgHolderBorederRad);
+    background-color: var(--msgHolderBgClr);
+    color: var(--msgHolderClr);
+    z-index: 1;
+  }
+
+  label {
+    color: map-get($map: $inputGroup, $key: labelClr);
+  }
+}
+
+.c-expandable-input {
+  display: grid;
+
+  :is(textarea, input, span) {
+    --paddingBlock: #{map-get($map: $expandableInput, $key: paddingBlock)};
+    --paddingInline: #{map-get($map: $expandableInput, $key: paddingInline)};
+
+    outline: none;
+    overflow: hidden;
+    grid-row: 1;
+    grid-column: 1;
+    height: 100%;
+    padding: var(--paddingBlock) var(--paddingInline);
+
+    &:focus {
+      box-shadow: map-get($map: $expandableInput, $key: boxShadow);
+    }
+  }
+
+  :is(textarea, input) {
+    font-family: sans-serif;
+    border-radius: map-get($map: $expandableInput, $key: borderRad);
+  }
+
+  span {
+    white-space: break-spaces;
+    @include hide();
+  }
+}
+
+input[type="range"] {
+  --trackHeight: #{map-get($map: $rangeInput, $key: trackHeight)};
+  --thumbDimention: #{map-get($map: $rangeInput, $key: thumbDimention)};
+  --bgClr: #{map-get($map: $rangeInput, $key: bgClr)};
+
+  /*********** Baseline, reset styles ***********/
+  -webkit-appearance: none;
+  appearance: none;
+  background: transparent;
+  cursor: pointer;
+  width: map-get($map: $rangeInput, $key: trackWidth);
+
+  /* Removes default focus */
+  &:focus {
+    outline: none;
+  }
+
+  /******** Chrome, Safari, Opera and Edge Chromium styles ********/
+  /* slider track */
+  &::-webkit-slider-runnable-track {
+    background-color: var(--bgClr);
+    border-radius: 0;
+    height: var(--trackHeight);
+  }
+
+  /* slider thumb */
+  &::-webkit-slider-thumb {
+    -webkit-appearance: none; /* Override default look */
+    appearance: none;
+    margin-top: calc(
+      (var(--thumbDimention) / -2) + (var(--trackHeight) / 2)
+    ); /* Centers thumb on the track */
+    background-color: var(--bgClr);
+    border-radius: 50%;
+    height: var(--thumbDimention);
+    width: var(--thumbDimention);
+  }
+
+  /*********** Firefox styles ***********/
+  /* slider track */
+  &::-moz-range-track {
+    background-color: var(--bgClr);
+    border-radius: 0;
+    height: var(--trackHeight);
+  }
+
+  /* slider thumb */
+  &::-moz-range-thumb {
+    background-color: var(--bgClr);
+    border: none; /*Removes extra border that FF applies*/
+    border-radius: 50%;
+    height: var(--thumbDimention);
+    width: var(--thumbDimention);
+  }
+}
+
+.c-checkbox {
+  --trackPadding: #{map-get($map: $checkbox, $key: padding)};
+  --trackHeight: #{map-get($map: $checkbox, $key: height)};
+  --thumbDimention: calc(var(--trackHeight) - 2 * var(--trackPadding));
+
+  input {
+    @include screenReaderOnly();
+  }
+
+  label {
+    position: relative;
+    display: block;
+    width: map-get($map: $checkbox, $key: width);
+    height: var(--trackHeight);
+    border-radius: 100vh;
+    background-color: map-get($map: $checkbox, $key: bgClr);
+    cursor: pointer;
+
+    &::before {
+      @include pseudoElement("");
+      top: var(--trackPadding);
+      inset-inline-start: var(--trackPadding);
+      height: var(--thumbDimention);
+      @include prefix(aspect-ratio, 1);
+      border-radius: 50%;
+      background-color: hsl(var(--clr-acc-400));
+    }
+
+    &[data-toggle="true"]::before {
+      inset-inline-start: calc(
+        100% - var(--thumbDimention) - var(--trackPadding)
+      );
+      background-color: hsl(var(--clr-pr-700));
+    }
+  }
+
+  &:has(input:focus) label {
+    outline: 1px solid;
+  }
+}

@@ -1,0 +1,64 @@
+/* Account Page */
+
+@use "../abstracts" as *;
+
+$userImgMaxWidth: calc(var(--bp-mobile) - 300px);
+
+.user-info {
+  @include min-mq($layoutSwitchBp) {
+    grid-template-columns: repeat(2, auto);
+    align-items: center;
+  }
+
+  &__img {
+    position: relative;
+    margin-inline: auto;
+    border-radius: 50%;
+    width: 100%;
+    max-width: $userImgMaxWidth;
+    box-shadow: var(--shadow-deviated);
+    overflow: hidden;
+
+    @include min-mq($layoutSwitchBp) {
+      margin-inline: 0;
+    }
+
+    .c-user-img {
+      width: 100%;
+      height: 100%;
+    }
+
+    &:has(.c-user-img[data-type="alt"]) .c-overlay {
+      display: none;
+    }
+  }
+
+  &__name,
+  &__username {
+    --padding-bottom: var(--spacer-300);
+    --highlightClr: hsl(var(--clr-acc-400));
+
+    display: block;
+    position: relative;
+    padding-bottom: var(--padding-bottom);
+    font-style: italic;
+    font-weight: var(--fw-bold);
+    text-align: center;
+    word-wrap: break-word;
+
+    &::first-letter {
+      color: var(--highlightClr);
+    }
+
+    &::before {
+      @include pseudoElement("");
+      left: 50%;
+      bottom: calc(var(--padding-bottom) / 2);
+      transform: translateX(-50%);
+      width: 50%;
+      min-width: 100px;
+      height: 2px;
+      background-color: var(--highlightClr);
+    }
+  }
+}

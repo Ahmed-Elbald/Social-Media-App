@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <!-- Meta Data -->
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="
+  Post it is the best place to share your stories and thoughts with the world 
+  and find a community that helps you with your life.
+  Latest posts by users"/>
+
+  <!-- CSS Links -->
+  <link rel="stylesheet" href="/assets/styles/main.css" />
+  <link rel="stylesheet" href="/assets/styles/pages/home.css" />
+
+  <!-- JS Links -->
+  <!-- Day JS -->
+  <script src="https://cdn.jsdelivr.net/npm/dayjs@1/dayjs.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/dayjs/1.11.10/plugin/relativeTime.min.js"></script>
+  <!-- Scripts -->
+  <script src="./assets/js/main.js" defer type="module"></script>
+  <script src="./assets/js/pages/home.js" defer type="module"></script>
+
+  <!-- Favicon -->
+  <link rel="shortcut icon" href="assets/images/logo.ico" type="image/x-icon">
+
+  <!-- Title -->
+  <title>Post it | Home</title>
+
+
+</head>
+
+<body>
+
+  <!-- Accessibility Stuff -->
+  <ul>
+
+    <!-- Skip To Main Content Link -->
+    <li>
+      <a class="c-accessibility-link" href="#main-content">
+        skip to main content
+      </a>
+    </li>
+
+    <!-- Element To Notify The User Of Updates On The Page -->
+    <li>
+      <p class="c-srn js-sr-notifier"></p>
+    </li>
+
+    <!-- Scroll To Top Button -->
+    <li>
+      <button class="c-stt-btn js-stt" type="button">
+        <i class="bi bi-arrow-up" aria-hidden="true"></i>
+        <span class="u-sr-only">
+          Scroll to top
+        </span>
+      </button>
+    </li>
+
+  </ul>
+
+  <!-- Site Header -->
+  <header class="c-primary-header">
+    <div class="l-container">
+      <div class="c-primary-header__inner">
+
+        <!-- Link To The Home Page -->
+        <a href="/home.html" id="homepage-link">
+          <img src="./assets/images/logo.svg" alt="">
+          <span class="u-sr-only">Home page</span>
+        </a>
+
+        <!-- Site Navigation -->
+        <nav class="c-dropdown">
+
+          <!-- Navigation Toggler -->
+          <button class="c-dropdown__toggler js-dropdown-toggler" type="button" aria-controls="user-menu" aria-expanded="false">
+            <div class="js-current-user-img"></div>
+            <span class="u-sr-only">
+              navigation toggler
+            </span>
+          </button>
+
+          <!-- Navigation List -->
+          <ul class="c-dropdown__list" id="user-menu" data-triangle="true">
+            <li>
+              <a href="/profile.html" class="c-dropdown__item">
+                <i class="bi bi-person-circle" aria-hidden="true"></i>
+                <span>profile</span>
+                <span class="u-sr-only"> page</span>
+              </a>
+            </li>
+            <li>
+              <a href="/settings.html" class="c-dropdown__item">
+                <i class="bi bi-gear" aria-hidden="true"></i>
+                <span>settings</span>
+                <span class="u-sr-only"> page</span>
+              </a>
+            </li>
+            <li>
+              <button type="button" class="c-dropdown__item" data-last="true" id="logout-btn">
+                <i class="bi bi-box-arrow-right" aria-hidden="true"></i>
+                <span>logout</span>
+              </button>
+            </li>
+          </ul>
+
+        </nav>
+
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main id="main-content">
+
+    <!-- Post Creation Area -->
+    <section class="l-section new-post-section">
+      <div class="l-container" data-width="narrow">
+        <div class="u-box">
+
+          <!-- Section Heading -->
+          <h2 class="u-sr-only">
+            Create a new post
+          </h2>
+
+          <!-- New Post Prompt -->
+          <p aria-hidden="true">
+            <span class="u-text-pr-700 u-text-capitalize" data-fill="name"></span>,
+            Got something to say? share it now!
+          </p>
+
+          <!-- New Post Button -->
+          <button class="c-button js-new-post-btn" data-btn-type="input-like" type="button" aria-haspopup="dialog">
+            new post
+          </button>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- Latest Posts Section -->
+    <section class="l-section">
+      <div class="l-container" data-width="narrow">
+
+        <!-- Section Heading -->
+        <h2 class="u-sr-only">
+          Latest posts
+        </h2>
+
+        <!-- Posts Container -->
+        <ul class="js-posts-container l-margin-spacer" style="
+        --marginSpacer: var(--spacer-700)
+        "></ul>
+
+      </div>
+    </section>
+
+  </main>
+
+
+</body>
+
+</html>

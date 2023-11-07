@@ -1,0 +1,48 @@
+@use "../abstracts" as *;
+
+// Continers Tokens
+$inlineMargin: var(--spacer-200);
+$minWidthStatic: var(--bp-tablet);
+$minWidthPercentage: 90%;
+$differenceInPixels: 200px;
+$differenceInPercnetage: 10%;
+
+// Containers
+.l-container {
+  width: calc(100% - calc($inlineMargin * 2));
+  @include prefix(margin-inline, $inlineMargin);
+
+  @include min-mq(mobile) {
+    width: min($minWidthPercentage, $minWidthStatic);
+    @include prefix(margin-inline, auto);
+
+    &[data-width="narrow"] {
+      width: min(
+        $minWidthPercentage - $differenceInPercnetage,
+        $minWidthStatic - $differenceInPixels
+      );
+    }
+
+    &[data-width="wide"] {
+      width: min(
+        $minWidthPercentage + $differenceInPercnetage,
+        $minWidthStatic + $differenceInPixels
+      );
+    }
+  }
+}
+
+.l-center-switch {
+  @include prefix(margin-inline, auto);
+  width: 100%;
+  max-width: $smallContainersMaxWidth;
+
+  &[data-center-text] {
+    text-align: center;
+  }
+
+  @include smOnly($layoutSwitchBp) {
+    @include prefix(margin-inline, 0);
+    text-align: unset;
+  }
+}

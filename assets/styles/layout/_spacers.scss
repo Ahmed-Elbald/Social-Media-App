@@ -1,0 +1,13 @@
+@use "../abstracts/" as *;
+
+.l-margin-spacer {
+  @include marginSpacer();
+}
+
+.l-flex-spacer {
+  @include flexSpacer();
+}
+
+.l-grid-spacer {
+  @include gridSpacer();
+}

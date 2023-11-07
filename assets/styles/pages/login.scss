@@ -1,0 +1,24 @@
+@use "../abstracts/" as *;
+
+/* Login Page */
+.login-page {
+  &__hero-img {
+    position: relative;
+
+    @include max-mq($layoutSwitchBp) {
+      display: none;
+    }
+
+    p {
+      position: absolute;
+      bottom: 0;
+      inset-inline-end: 0;
+      @include hide(true);
+      font-size: var(--fs-300);
+    }
+
+    &:hover p {
+      @include showUp();
+    }
+  }
+}

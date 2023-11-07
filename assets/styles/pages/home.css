@@ -1,0 +1,9 @@
+/* Home Page */
+.new-post-section {
+  padding-bottom: 0;
+}
+.new-post-section p {
+  margin-block-end: var(--spacer-200);
+}
+
+/*# sourceMappingURL=home.css.map */

@@ -1,0 +1,37 @@
+@use "../abstracts/" as *;
+
+.c-error-message {
+  position: fixed;
+  top: map-get($map: $errorMsg, $key: topOffset);
+  inset-inline-start: 0;
+  transform: translateX(-120%);
+  padding: map-get($map: $errorMsg, $key: padding);
+  padding-inline-end: map-get($map: $errorMsg, $key: paddingInlineEnd);
+  border-radius: map-get($map: $errorMsg, $key: borderRad);
+  box-shadow: map-get($map: $errorMsg, $key: boxShadow);
+  background-color: map-get($map: $errorMsg, $key: bgClr);
+  color: map-get($map: $errorMsg, $key: color);
+  transition-duration: map-get($map: $errorMsg, $key: transitionDuration);
+  z-index: 10000;
+
+  &.js-show-up {
+    transform: translateX(0);
+  }
+
+  button {
+    position: absolute;
+    top: 0;
+    inset-inline-end: 0;
+    background-color: map-get($map: $errorMsg, $key: btnBgClr);
+    color: map-get($map: $errorMsg, $key: btnClr);
+    -webkit-text-stroke: map-get($map: $errorMsg, $key: btnStroke);
+  }
+}
+
+.c-img-remover {
+  padding: map-get($map: $imgRemover, $key: padding);
+  background-color: map-get($map: $imgRemover, $key: bgClr);
+  color: map-get($map: $imgRemover, $key: color);
+  font-size: map-get($map: $imgRemover, $key: fs);
+  aspect-ratio: 1;
+}

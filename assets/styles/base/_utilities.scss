@@ -1,0 +1,70 @@
+@use "../abstracts" as *;
+
+/* Utility Calsses */
+.u-sr-only {
+  @include screenReaderOnly();
+}
+
+.u-text-center {
+  @include textCenter();
+}
+
+@each $textStyle in $textStyles {
+  .u-text-#{$textStyle} {
+    text-transform: #{$textStyle};
+  }
+}
+
+@each $radius, $value in $border-radius {
+  .u-radius-#{$radius} {
+    border-radius: $value;
+  }
+}
+
+@each $color, $colorVariants in $colors {
+  @each $colorVariant, $value in $colorVariants {
+    .u-text-#{$color}-#{$colorVariant} {
+      color: hsl(
+        var(unquote($string: "--clr-" + #{$color} + "-" + #{$colorVariant}))
+      );
+    }
+
+    .u-bg-#{$color}-#{$colorVariant} {
+      background-color: hsl(
+        var(unquote($string: "--clr-" + #{$color} + "-" + #{$colorVariant}))
+      );
+    }
+  }
+}
+
+.u-box {
+  @include createBox();
+}
+
+.u-highlight {
+  color: $highlightedTextClr;
+}
+
+@each $shadow, $value in $box-shadow {
+  .u-shadow-#{$shadow} {
+    box-shadow: unquote($string: $value);
+  }
+}
+
+@each $fontFamily, $value in $fontFamilies {
+  .u-ff-#{$fontFamily} {
+    font-family: unquote($string: $value);
+  }
+}
+
+@each $fontWeight, $value in $fontWeights {
+  .u-fw-#{$fontWeight} {
+    font-weight: $value;
+  }
+}
+
+@each $size, $value in $sizes {
+  .u-fs-#{$size} {
+    font-size: var(unquote($string: "--fs-" + #{$size}));
+  }
+}

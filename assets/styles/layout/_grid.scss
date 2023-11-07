@@ -1,0 +1,9 @@
+@use "../abstracts" as *;
+
+.l-grid-centering {
+  @include gridCentering();
+}
+
+.l-grid-switch {
+  @include gridSwitch();
+}

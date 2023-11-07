@@ -1,0 +1,83 @@
+// SASS Variables
+
+$breakpoints: (
+  mobile: 576px,
+  tablet: 992px,
+  desktop: 1400px,
+);
+
+$border-radius: (
+  regular: var(--spacer-100),
+);
+
+$textStyles: ("capitalize", "uppercase");
+
+$colors: (
+  pr: (
+    700: (
+      light: 180 96% 39%,
+    ),
+  ),
+  acc: (
+    400: (
+      light: 350 80% 55%,
+    ),
+  ),
+  neu: (
+    100: (
+      light: 0 0% 100%,
+      dark: 0 0% 0%,
+    ),
+    300: (
+      light: 0 0% 95%,
+      dark: 0 0% 20%,
+    ),
+    500: (
+      light: 0 0% 30%,
+      dark: 0 0% 90%,
+    ),
+    700: (
+      light: 0 0% 0%,
+      dark: 0 0% 100%,
+    ),
+  ),
+);
+
+$box-shadow: (
+  regular: "0 0 10px 2px var(--shadowClr)",
+  deviated: "2px 2px 10px 2px var(--shadowClr)",
+);
+
+$fontFamilies: (
+  pr: '"Cairo", sans-serif',
+);
+
+$fontWeights: (
+  regular: 400,
+  bold: 700,
+  extra-bold: 1000,
+);
+
+$sizes: (
+  "100": 0.25rem,
+  "200": 0.5rem,
+  "300": 0.75rem,
+  "400": 1rem,
+  "500": 1.125rem,
+  "600": 1.25rem,
+  "700": 1.5rem,
+  "800": 2rem,
+  "900": 3rem,
+  "1000": 4rem,
+  "1100": 5rem,
+  "1200": 6rem,
+  "1300": 8rem,
+);
+
+$layoutSwitchBp: tablet;
+$smallContainersMaxWidth: calc(
+  map-get(
+      $map: $breakpoints,
+      $key: mobile,
+    ) - 150px
+);

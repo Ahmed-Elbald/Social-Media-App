@@ -1,0 +1,28 @@
+@use "../abstracts/" as *;
+
+.main {
+  margin-block: map-get($map: $section, $key: paddingBlock);
+}
+
+.page-heading {
+  margin-block-end: map-get($map: $section, $key: paddingBlock);
+}
+
+.settings-section {
+  @include createBox();
+
+  &__list {
+    margin-block-start: var(--spacer-300);
+  }
+
+  &__item {
+    @include flexBetween();
+    padding: var(--spacer-300);
+    background-color: hsl(var(--clr-neu-300));
+    overflow-wrap: anywhere;
+
+    h3 {
+      font-weight: var(--fw-bold);
+    }
+  }
+}

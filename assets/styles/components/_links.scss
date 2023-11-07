@@ -1,0 +1,7 @@
+@use "../abstracts/" as *;
+
+.c-page-link {
+  color: map-get($map: $pageLink, $key: color);
+  font-weight: map-get($map: $pageLink, $key: fw);
+  text-decoration: underline;
+}

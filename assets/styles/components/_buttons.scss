@@ -1,0 +1,67 @@
+@use "../abstracts/" as *;
+
+.c-button {
+  padding: var(--padding);
+  border-radius: var(--borderRad);
+  width: var(--width);
+  background-color: var(--bgClr);
+  color: var(--color);
+  font-weight: var(--fw);
+
+  &[data-btn-type="input-like"] {
+    --padding: #{map-get($map: $inputLikeButton, $key: padding)};
+    --width: #{map-get($map: $inputLikeButton, $key: width)};
+    --borderRad: #{map-get($map: $inputLikeButton, $key: borderRad)};
+    --bgClr: #{map-get($map: $inputLikeButton, $key: bgClr)};
+    --color: #{map-get($map: $inputLikeButton, $key: color)};
+    --fw: #{map-get($map: $inputLikeButton, $key: fw)};
+  }
+
+  &:not([data-btn-type="input-like"]) {
+    --padding: #{map-get($map: $button, $key: padding)};
+    --width: #{map-get($map: $button, $key: width)};
+    --borderRad: #{map-get($map: $button, $key: borderRad)};
+    --bgClr: #{map-get($map: $button, $key: bgClr)};
+    --fw: #{map-get($map: $button, $key: fw)};
+    --boxShadow: #{map-get($map: $button, $key: boxShadow)};
+
+    // position: relative;
+    box-shadow: var(--boxShadow);
+
+    &:hover {
+      background-color: var(--color);
+      color: hsl(var(--clr-neu-100));
+    }
+
+    &.js-checking {
+      pointer-events: none;
+      animation: btnCheckingAnimation 1000ms linear 0ms infinite forwards;
+    }
+
+    @keyframes btnCheckingAnimation {
+      0% {
+        opacity: 0.85;
+      }
+
+      50% {
+        opacity: 0.125;
+      }
+
+      100% {
+        opacity: 0.85;
+      }
+    }
+  }
+
+  &[data-btn-type="primary"] {
+    --color: hsl(var(--clr-pr-700));
+  }
+
+  &[data-btn-type="secondary"] {
+    --color: hsl(var(--clr-neu-500));
+  }
+
+  &[data-btn-type="accent"] {
+    --color: hsl(var(--clr-acc-400));
+  }
+}

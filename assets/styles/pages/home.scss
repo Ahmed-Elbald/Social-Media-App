@@ -1,0 +1,10 @@
+/* Home Page */
+@use "../abstracts/" as *;
+
+.new-post-section {
+  padding-bottom: 0;
+
+  p {
+    margin-block-end: var(--spacer-200);
+  }
+}

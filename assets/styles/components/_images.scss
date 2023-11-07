@@ -1,0 +1,43 @@
+@use "../abstracts/" as *;
+
+$userImgClr: hsl(var(--clr-pr-700));
+
+.c-user-img {
+  aspect-ratio: 1;
+  width: map-get($map: $userImg, $key: width);
+  border-radius: map-get($map: $userImg, $key: borderRad);
+  box-shadow: map-get($map: $userImg, $key: boxShadow);
+  overflow: hidden;
+}
+
+.c-post-img {
+  position: relative;
+  display: none;
+
+  &.js-has-img {
+    display: block;
+  }
+
+  img {
+    border: 2px solid hsl(var(--clr-neu-300));
+    @include prefix(aspect-ratio, map-get($map: $postImg, $key: aspectRatio));
+    @include prefix(object-fit, contain);
+  }
+
+  &[data-preview="true"] {
+    margin-block-start: map-get($map: $postImg, $key: marginBlock);
+  }
+
+  .c-img-remover {
+    @include hide(true);
+    position: absolute;
+    top: 0;
+    inset-inline-end: 0;
+    @include prefix(text-stroke, 1px);
+  }
+
+  &[data-preview="true"]:hover .c-img-remover,
+  &[data-preview="true"] .c-img-remover:focus {
+    @include showUp();
+  }
+}

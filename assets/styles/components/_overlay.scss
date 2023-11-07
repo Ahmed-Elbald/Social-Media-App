@@ -1,0 +1,14 @@
+@use "../abstracts/" as *;
+
+.c-overlay {
+  @include overlay(var(--overlayBgClr));
+  @include flexCentering();
+
+  &[data-hidden="true"] {
+    opacity: 0;
+
+    &:is(:hover, :focus-within) {
+      opacity: 1;
+    }
+  }
+}

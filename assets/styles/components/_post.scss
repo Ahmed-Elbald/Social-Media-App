@@ -1,0 +1,52 @@
+@use "../abstracts/" as *;
+
+.c-post {
+  --gridSpacer: #{map-get($map: $post, $key: spacer)};
+
+  @include createBox();
+  @include gridSpacer();
+
+  &__header {
+    display: flex;
+    align-items: start;
+    gap: map-get($map: $post, $key: headerItemsGap);
+  }
+
+  &__details {
+    align-self: flex-end;
+  }
+
+  &__author-name {
+    color: map-get($map: $post, $key: authorNameClr);
+    text-transform: capitalize;
+  }
+
+  &__menu {
+    margin-inline-start: auto;
+  }
+
+  &__body {
+    line-height: 1.25;
+    white-space: pre-line;
+
+    @include min-mq(mobile) {
+      line-height: 1.5;
+    }
+  }
+
+  &__info {
+    @include flexBetween();
+  }
+
+  &__comments-btn {
+    color: map-get($map: $post, $key: authorNameClr);
+    text-decoration: underline;
+  }
+
+  &__tag {
+    padding: map-get($map: $post, $key: tagPadding);
+    border-radius: 100vh;
+    background-color: map-get($map: $post, $key: tagBgClr);
+    color: map-get($map: $post, $key: tagClr);
+  }
+}

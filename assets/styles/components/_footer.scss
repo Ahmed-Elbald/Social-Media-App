@@ -1,0 +1,34 @@
+@use "../abstracts/" as *;
+
+.c-footer {
+  --columnGap: #{map-get($map: $footer, $key: colGap)};
+  --marginSpacer: #{map-get($map: $footer, $key: marginSpacer)};
+
+  padding-block: map-get($map: $footer, $key: paddingBlock);
+  background-color: map-get($map: $footer, $key: bgClr);
+  box-shadow: map-get($map: $footer, $key: boxShadow);
+  text-align: center;
+
+  &__inner {
+    @include marginSpacer();
+
+    @include min-mq($layoutSwitchBp) {
+      >* {
+        margin-block-start: 0;
+      }
+
+      @include flexBetween(true);
+    }
+  }
+
+  &__social-links {
+    --clusterSpacer: #{map-get($map: $footer, $key: clusterSpacer)};
+
+    @include flexCluster();
+    font-size: map-get($map: $footer, $key: socialIconsFs);
+
+    a:hover {
+      color: map-get($map: $footer, $key: socialIconsHoverClr);
+    }
+  }
+}

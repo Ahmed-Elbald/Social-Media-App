@@ -1,0 +1,111 @@
+@use "../abstracts" as *;
+
+/* Custom Properties */
+:root {
+  /* BreakPoints */
+  @each $breakpoint, $value in $breakpoints {
+    --bp-#{$breakpoint}: #{$value};
+  }
+
+  /* Border Radius */
+  @each $radius, $value in $border-radius {
+    --radius-#{$radius}: #{$value};
+  }
+
+  /* Colors */
+  @each $color, $colorVariants in $colors {
+    @each $colorVariant, $value in $colorVariants {
+      --clr-#{$color}-#{$colorVariant}: #{map-get($map: $value, $key: light)};
+    }
+  }
+  --overlayBgClr: #{$overlayBgClr};
+  --shadowClr: #{map-get($map: $shadowClr, $key: light)};
+
+  &[data-dark-theme="true"] {
+    @each $color, $colorVariants in $colors {
+      @each $colorVariant, $value in $colorVariants {
+        $darkColorValue: map-get(
+          $map: $value,
+          $key: dark,
+        );
+
+        @if ($darkColorValue) {
+          --clr-#{$color}-#{$colorVariant}: #{$darkColorValue};
+        }
+      }
+    }
+
+    --shadowClr: #{map-get($map: $shadowClr, $key: dark)};
+  }
+
+  /* Box Shadow */
+  @each $shadow, $value in $box-shadow {
+    --shadow-#{$shadow}: #{$value};
+  }
+
+  /* Spacers */
+  @each $size, $value in $sizes {
+    --spacer-#{$size}: #{$value};
+  }
+
+  /* Font Families */
+  @each $fontFamily, $value in $fontFamilies {
+    --ff-#{$fontFamily}: #{$value};
+  }
+
+  /* Font Weights */
+  @each $fontWeight, $value in $fontWeights {
+    --fw-#{$fontWeight}: #{$value};
+  }
+
+  /* Font Sizes */
+  --fs-factor: 1;
+  $sizesLength: length($sizes);
+  $growthBase: 0.3vw;
+  @for $i from 2 through $sizesLength - 1 {
+    $currentSize: nth(
+      $list:
+        nth(
+          $list: $sizes,
+          $n: $i,
+        ),
+      $n: 1,
+    );
+
+    $currentSizeValue: nth(
+      $list:
+        nth(
+          $list: $sizes,
+          $n: $i,
+        ),
+      $n: 2,
+    );
+    $lastSizeValue: nth(
+      $list:
+        nth(
+          $list: $sizes,
+          $n: $i - 1,
+        ),
+      $n: 2,
+    );
+    $nextSizeValue: nth(
+      $list:
+        nth(
+          $list: $sizes,
+          $n: $i + 1,
+        ),
+      $n: 2,
+    );
+
+    $growth: $growthBase * (1 + (0.15 * $i));
+
+    --fs-#{$currentSize}: calc(
+      clamp(
+          #{$currentSizeValue},
+          calc(#{$lastSizeValue} + #{$growth}),
+          #{$nextSizeValue}
+        ) *
+        var(--fs-factor)
+    );
+  }
+}

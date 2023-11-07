@@ -1,0 +1,30 @@
+/* Sing Up Page */
+.signup-page__tagline {
+  margin-bottom: var(--spacer-400);
+}
+.signup-page__intro-statement {
+  line-height: 1.5;
+}
+.signup-page #profile-img-input {
+  position: relative;
+  margin-block: var(--spacer-300) var(--spacer-700);
+}
+.signup-page #profile-img-input .c-img-input {
+  --clusterSpacer: var(--spacer-200);
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--clusterSpacer);
+  justify-content: flex-start;
+}
+.signup-page #profile-img-input .c-img-remover {
+  padding-inline: var(--spacer-200);
+}
+.signup-page #profile-img-input::before {
+  content: attr(data-img-name);
+  position: absolute;
+  inset-inline-start: 0;
+  inset-block-start: calc(100% + var(--spacer-200));
+  font-size: var(--fs-300);
+}
+
+/*# sourceMappingURL=signup.css.map */

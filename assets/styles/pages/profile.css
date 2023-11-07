@@ -1,0 +1,55 @@
+/* Account Page */
+@media (min-width: 992px) {
+  .user-info {
+    grid-template-columns: repeat(2, auto);
+    align-items: center;
+  }
+}
+.user-info__img {
+  position: relative;
+  margin-inline: auto;
+  border-radius: 50%;
+  width: 100%;
+  max-width: calc(var(--bp-mobile) - 300px);
+  box-shadow: var(--shadow-deviated);
+  overflow: hidden;
+}
+@media (min-width: 992px) {
+  .user-info__img {
+    margin-inline: 0;
+  }
+}
+.user-info__img .c-user-img {
+  width: 100%;
+  height: 100%;
+}
+.user-info__img:has(.c-user-img[data-type=alt]) .c-overlay {
+  display: none;
+}
+.user-info__name, .user-info__username {
+  --padding-bottom: var(--spacer-300);
+  --highlightClr: hsl(var(--clr-acc-400));
+  display: block;
+  position: relative;
+  padding-bottom: var(--padding-bottom);
+  font-style: italic;
+  font-weight: var(--fw-bold);
+  text-align: center;
+  word-wrap: break-word;
+}
+.user-info__name::first-letter, .user-info__username::first-letter {
+  color: var(--highlightClr);
+}
+.user-info__name::before, .user-info__username::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: calc(var(--padding-bottom) / 2);
+  transform: translateX(-50%);
+  width: 50%;
+  min-width: 100px;
+  height: 2px;
+  background-color: var(--highlightClr);
+}
+
+/*# sourceMappingURL=profile.css.map */

@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- Meta Data -->
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="
+  Post it is the best place to share your stories and thoughts with the world 
+  and find a community that helps you with your life.
+  Log in now !"/>
+
+  <!-- CSS Links -->
+  <link rel="stylesheet" href="/assets/styles/main.css"/>
+  <link rel="stylesheet" href="/assets/styles/pages/login.css" />
+
+  <!-- JS Links -->
+  <script src="./assets/js/main.js" type="module"></script>
+  <script src="./assets/js/pages/login.js" type="module"></script>
+
+  <!-- Favicon -->
+  <link rel="shortcut icon" href="assets/images/logo.ico" type="image/x-icon" />
+
+  <!-- Title -->
+  <title>Post it | Log in</title>
+</head>
+
+<body>
+
+  <!-- Accessibility Stuff -->
+  <ul>
+
+    <!-- Skip To Main Content Link -->
+    <li>
+      <a class="c-accessibility-link" href="#main-content">
+        skip to main content
+      </a>
+    </li>
+
+    <!-- Element To Notify The User Of Updates On The Page -->
+    <li>
+      <p class="c-srn js-sr-notifier"></p>
+    </li>
+
+  </ul>
+
+  <!-- Site Header -->
+  <header class="c-primary-header" data-page="landing">
+    <div class="l-container">
+      <div class="c-primary-header__inner">
+
+        <!-- Site Logo -->
+        <img class="c-primary-header__logo" src="./assets/images/logo.svg" alt="Site logo" />
+
+        <!-- Link To Sign Up Page -->
+        <a href="./index.html" class="c-page-link">sign up</a>
+
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+
+  <main class="login-page" id="main-content">
+
+    <!-- Hero Section -->
+    <section class="l-section" data-name="hero">
+      <div class="l-container">
+        <div class="l-grid-switch" style="
+              --rowGap: var(--spacer-800);
+              --columnGap: var(--spacer-1000);
+            ">
+
+          <!-- Login Page Form -->
+          <form class="c-signing-form l-center-switch" id="login-form">
+
+            <!-- Form Heading -->
+            <h1 class="c-signing-form__heading c-heading-4">
+              Log in to your account
+            </h1>
+
+            <!-- Form Content -->
+            <div class="c-signing-form__content">
+
+              <!-- Form Inputs -->
+              <section class="c-signing-form__fields">
+                <div class="c-signing-form__field c-input-group" data-column="fluid">
+                  <label for="username" class="c-form__label">username</label>
+                  <input class="c-form__control c-input" type="text" name="username" id="username"
+                    autocomplete="username" />
+                </div>
+                <div class="c-signing-form__field c-input-group" data-column="fluid">
+                  <label for="password" class="c-form__label">password</label>
+                  <input class="c-form__control c-input" type="password" name="password" id="password"
+                    autocomplete="new-password" />
+                </div>
+              </section>
+
+              <!-- Form Submit Button -->
+              <section>
+                <button type="submit" class="c-signing-form__submit-btn c-button" data-btn-type="primary">
+                  log in
+                </button>
+              </section>
+            </div>
+
+            <!-- Call To Action Paragraph -->
+            <p class="c-signing-form__cta">
+              don't have an account?
+              <a href="./index.html" class="c-page-link">sign up</a>
+            </p>
+
+          </form>
+
+          <!-- Login Page Hero Image -->
+          <div class="login-page__hero-img">
+
+            <!-- Image Source Attribution -->
+            <p>
+              image source:
+              <a href="http://www.freepik.com" target="_blank" rel="noopener noreferrer">Freepik</a>
+            </p>
+
+            <img src="./assets/images/hero-image.webp" alt="" />
+
+          </div>
+
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Site Footer -->
+  <footer class="c-footer" data-type="primary">
+    <div class="l-container">
+      <div class="c-footer__inner">
+
+        <!-- Footer Attribution -->
+        <p>
+          made with
+          <span class="u-sr-only">love</span>
+          <i class="bi bi-suit-heart u-text-acc-400" aria-hidden="true"></i>
+          by
+          <span class="u-text-acc-400 u-text-capitalize u-fw-bold">ahmed el bald</span>
+        </p>
+
+        <!-- Footer Social Links -->
+        <ul class="c-footer__social-links">
+          <li>
+            <a href="https://ahmed-elbald.github.io/Personal-Portfolio/" target="_blank" rel="noopener noreferrer">
+              <i class="bi bi-briefcase-fill"></i>
+              <span class="u-sr-only"> My portfolio </span>
+            </a>
+          </li>
+
+          <li>
+            <a href="https://web.facebook.com/abkareenooo/" target="_blank" rel="noopener noreferrer">
+              <i class="bi bi-facebook"></i>
+              <span class="u-sr-only"> Facebook account </span>
+            </a>
+          </li>
+
+          <li>
+            <a href="https://github.com/Ahmed-Elbald" target="_blank" rel="noopener noreferrer">
+              <i class="bi bi-github" aria-hidden="true"></i>
+              <span class="u-sr-only"> GitHub account </span>
+            </a>
+          </li>
+        </ul>
+
+      </div>
+    </div>
+  </footer>
+
+</body>
+
+</html>

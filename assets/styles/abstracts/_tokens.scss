@@ -1,0 +1,242 @@
+@use "./variables" as *;
+
+// Body
+$body: (
+  txtClr: hsl(var(--clr-neu-500)),
+  bgClrInit: hsl(var(--clr-neu-100)),
+  bgClrAlt: hsl(var(--clr-neu-300)),
+  ff: var(--ff-pr),
+  fs: var(--fs-400),
+  letterSpacing: 0.5px,
+);
+
+// Scrollbar
+$scrollbar: (
+  width: 0.5rem,
+  thumbBgClr: hsl(var(--clr-pr-700)),
+  trackBgClr: transparent,
+);
+
+// Accessibility Links
+$accessLinks: (
+  padding: var(--spacer-400),
+  topOffset: 20px,
+);
+
+// Scroll To Top Button
+$sttBtn: (
+  padding: var(--spacer-400),
+  borderRad: 50%,
+  bottomOffset: 2rem,
+  inlineOffset: 1rem,
+  bgClr: hsl(var(--clr-neu-300)),
+  color: hsl(var(--clr-pr-700)),
+);
+
+// Site Header
+$siteHeader: (
+  paddingBlock: var(--spacer-300),
+  bgClr: hsl(var(--clr-neu-100)),
+  boxShadow: var(--shadow-regular),
+);
+
+// Footer
+$footer: (
+  paddingBlock: var(--spacer-500),
+  bgClr: hsl(var(--clr-neu-100)),
+  boxShadow: var(--shadow-regular),
+  colGap: var(--spacer-400),
+  marginSpacer: var(--spacer-400),
+  clusterSpacer: var(--spacer-300),
+  socialIconsFs: var(--fs-700),
+  socialIconsHoverClr: hsl(var(--clr-acc-400)),
+);
+
+// Navigation
+$dropdown: (
+  bgClr: hsl(var(--clr-neu-100)),
+  color: hsl(var(--clr-neu-500)),
+  lineClr: hsl(var(--clr-neu-300)),
+  itemPaddingBlock: var(--spacer-300),
+  itemPaddingInline: var(--spacer-200) var(--spacer-800),
+  itemContentGap: var(--spacer-200),
+  itemActiveClr: hsl(var(--clr-acc-400)),
+  arrowHeight: 15px,
+  arrowOffset: var(--spacer-100),
+);
+
+// Sections
+$section: (
+  paddingBlock:
+    clamp(var(--spacer-700), calc(var(--spacer-600) + 2vw), var(--spacer-1200)),
+);
+
+// Signing Form
+$signingForm: (
+  marginBlock: var(--spacer-300),
+  fieldsGap: var(--spacer-100) var(--spacer-200),
+  fieldsContainerMargin: var(--spacer-400),
+  headingClr: hsl(var(--clr-pr-700)),
+);
+
+// Inputs
+$inputGroup: (
+  arrowHeight: 7px,
+  arrowInlineInset: var(--spacer-100),
+  labelClr: hsl(var(--clr-pr-700)),
+  msgHolderPadding: var(--spacer-300),
+  msgHolderBorederRad: var(--radius-regular),
+  msgHolderClr: hsl(var(--clr-neu-500)),
+  msgHolderBgClr: hsl(var(--clr-neu-300)),
+);
+
+$input: (
+  marginBlock: var(--spacer-100),
+  padding: var(--spacer-200) var(--spacer-200),
+  border: 1px solid hsl(var(--clr-neu-500) / 0.375),
+  bgClr: hsl(var(--clr-neu-300) / 0.75),
+  color: hsl(var(--clr-neu-500) / 0.9),
+);
+
+$expandableInput: (
+  paddingBlock: var(--spacer-300),
+  paddingInline: var(--spacer-200),
+  boxShadow: 0 0 5px inset var(--shadowClr),
+  borderRad: var(--radius-regular),
+);
+
+$imgInput: (
+  padding: var(--spacer-200),
+  borderRad: var(--radius-regular),
+  bgClr: hsl(var(--clr-neu-300)),
+);
+
+$checkbox: (
+  width: 50px,
+  height: 20px,
+  padding: 2px,
+  bgClr: hsl(var(--clr-neu-100)),
+);
+
+$rangeInput: (
+  trackWidth: 5rem,
+  trackHeight: 0.25rem,
+  thumbDimention: 1rem,
+  bgClr: hsl(var(--clr-neu-500)),
+);
+
+// Buttons
+$button: (
+  width: max-content,
+  padding: var(--spacer-300) var(--spacer-500),
+  borderRad: var(--radius-regular),
+  bgClr: hsl(var(--clr-neu-100)),
+  boxShadow: var(--shadow-regular),
+  fw: var(--fw-bold),
+);
+
+$inputLikeButton: (
+  width: 100%,
+  padding: var(--spacer-200),
+  borderRad: var(--radius-regular),
+  bgClr: hsl(var(--clr-neu-300)),
+  color: hsl(var(--clr-neu-500)),
+  fw: var(--fw-regular),
+);
+
+// Links
+$pageLink: (
+  color: hsl(var(--clr-acc-400)),
+  fw: var(--fw-bold),
+);
+
+// Posts
+$post: (
+  spacer: var(--spacer-300),
+  headerItemsGap: var(--spacer-300),
+  authorNameClr: hsl(var(--clr-pr-700)),
+  bodyMaxChar: 80ch,
+  tagPadding: var(--spacer-100) var(--spacer-200),
+  tagBgClr: hsl(var(--clr-neu-300)),
+  tagClr: hsl(var(--clr-pr-700)),
+);
+
+// Popups
+$popupFrame: (
+  paddingBottom: var(--spacer-300),
+  topOffset: 15px,
+  bgClr: var(--overlayBgClr),
+  filter: blur(2px),
+  transitionDuration: 375ms,
+);
+
+$lightbox: (
+  height: 70vh,
+  imgFilter: drop-shadow(0px 0px 5px hsl(var(--clr-neu-500))),
+);
+
+$dialog: (
+  maxHeight: 80vh,
+  paddingInline: var(--spacer-300),
+  paddingBlock: var(--spacer-400),
+  scrollbarBgClr: hsl(var(--clr-pr-700)),
+  scrollbarWidth: 0.5rem,
+  scrollBarPaddingPercent: 50%,
+  scrollbarBorderRad: 0,
+  headerInlinePadding: var(--spacer-600),
+  headerBgClr: hsl(var(--clr-neu-100)),
+  headerBorder: 2px solid hsl(var(--clr-neu-500) / 0.25),
+  btnsGap: var(--spacer-200),
+);
+
+// General Context
+$focusStateOulineWidth: 2px;
+$linksOutlineOffset: 1px;
+$inputOutlineStyle: solid;
+$controlsOutlineStyle: dashed;
+
+$highlightedTextClr: hsl(var(--clr-acc-400));
+$overlayBgClr: hsl(var(--clr-neu-500) / 0.125);
+$shadowClr: (
+  light: hsl(var(--clr-neu-700) / 0.15),
+  dark: hsl(var(--clr-neu-700) / 0.375),
+);
+
+$errorMsg: (
+  topOffset: var(--spacer-1200),
+  padding: var(--spacer-300),
+  paddingInlineEnd: var(--spacer-700),
+  borderRad: 0 var(--radius-regular) var(--radius-regular) 0,
+  boxShadow: var(--shadow-deviatedsomeuser2323),
+  bgClr: hsl(var(--clr-neu-100)),
+  color: hsl(var(--clr-acc-400)),
+  transitionDuration: 500ms,
+  btnBgClr: hsl(var(--clr-acc-400)),
+  btnClr: hsl(var(--clr-neu-100)),
+  btnStroke: 1px,
+);
+
+$imgRemover: (
+  padding: var(--spacer-100),
+  bgClr: hsl(var(--clr-neu-300)),
+  color: hsl(var(--clr-acc-400)),
+  fs: var(--fs-400),
+);
+
+$userImg: (
+  width: clamp(35px, calc(30px + 0.75vw), 45px),
+  borderRad: 50%,
+  boxShadow: var(--shadow-deviated),
+);
+
+$postImg: (
+  marginBlock: var(--spacer-400),
+  aspectRatio: 2,
+);
+
+$zIndex: (
+  siteHeader: 1,
+  accessibilityLink: 2,
+  popup: 3,
+  errorMsg: 4,
+);

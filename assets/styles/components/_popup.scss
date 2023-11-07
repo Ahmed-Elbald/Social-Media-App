@@ -1,0 +1,182 @@
+@use "../abstracts/" as *;
+
+.c-popup-frame {
+  position: fixed;
+  inset: 0;
+  top: map-get($map: $popupFrame, $key: topOffset);
+  @include flexCentering();
+  padding-block-end: map-get($map: $popupFrame, $key: paddingBottom);
+  overflow: hidden;
+  opacity: 0;
+  z-index: map-get($map: $zIndex, $key: popup);
+  background-color: map-get($map: $popupFrame, $key: bgClr);
+  backdrop-filter: map-get($map: $popupFrame, $key: filter);
+  transition-duration: map-get($map: $popupFrame, $key: transitionDuration);
+
+  @include max-mq(mobile) {
+    &:has(.c-dialog) {
+      align-items: flex-end;
+    }
+  }
+
+  &.js-show-up {
+    top: 0;
+    opacity: 1;
+  }
+
+  &:focus {
+    outline: none;
+  }
+
+  .c-popup-close-btn {
+    position: absolute;
+    top: var(--top);
+    inset-inline-end: 0;
+    color: var(--color);
+    font-size: var(--fs);
+  }
+}
+
+.c-lightbox {
+  height: map-get($map: $lightbox, $key: height);
+
+  > img {
+    object-fit: contain;
+    filter: map-get($map: $lightbox, $key: imgFilter);
+  }
+
+  .c-popup-close-btn {
+    --top: 0;
+    --color: hsl(var(--clr-acc-400));
+    --fs: var(--fs-800);
+  }
+}
+
+.c-dialog {
+  --dialogInlinePadding: #{map-get($map: $dialog, $key: paddingInline)};
+  --dialogBlockPadding: #{map-get($map: $dialog, $key: paddingBlock)};
+
+  --scrollbarPaddingPercent: #{map-get(
+      $map: $dialog,
+      $key: scrollBarPaddingPercent
+    )};
+  --scrollbarBgClr: #{map-get($map: $dialog, $key: scrollbarBgClr)};
+
+  position: relative;
+  @include createBox(0 0 var(--dialogBlockPadding) var(--dialogInlinePadding));
+  max-height: map-get($map: $dialog, $key: maxHeight);
+  overflow-y: scroll;
+  overflow-x: hidden;
+
+  &::-webkit-scrollbar {
+    width: var(--dialogInlinePadding);
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: transparent;
+    border-radius: map-get($map: $dialog, $key: scrollbarBorderRad);
+  }
+
+  &:hover::-webkit-scrollbar-thumb {
+    background-image: linear-gradient(
+      to right,
+      transparent var(--scrollbarPaddingPercent),
+      var(--scrollbarBgClr) var(--scrollbarPaddingPercent)
+    );
+  }
+
+  .c-popup-close-btn {
+    --top: var(--dialogInlinePadding);
+    --color: hsl(var(--clr-neu-500));
+    --fs: var(--fs-700);
+  }
+
+  &__header {
+    position: sticky;
+    top: 0;
+    padding-inline: map-get($map: $dialog, $key: headerInlinePadding);
+    padding-block: var(--dialogBlockPadding);
+    border-bottom: map-get($map: $dialog, $key: headerBorder);
+    background-color: map-get($map: $dialog, $key: headerBgClr);
+    text-align: center;
+    z-index: 1;
+
+    h3 {
+      @include heading(3);
+
+      @include max-mq(mobile) {
+        font-size: var(--fs-600);
+      }
+    }
+  }
+
+  &__content {
+    padding-block-start: var(--dialogBlockPadding);
+  }
+
+  &__action-area {
+    --clusterSpacer: #{map-get($map: $dialog, $key: btnsGap)};
+
+    margin-block: var(--dialogBlockPadding);
+    @include flexCluster();
+  }
+
+  &__content {
+    .confirm-msg {
+      width: 25ch;
+      margin-inline: auto;
+      line-height: 1.5em;
+      font-weight: var(--fw-bold);
+      font-size: var(--fs-600);
+      text-align: center;
+    }
+
+    .post-comments {
+      min-height: 30px;
+      animation: placeholderLoading 2s linear 0s infinite forwards;
+
+      @keyframes placeholderLoading {
+        0% {
+          background-color: white;
+        }
+
+        50% {
+          background-color: rgba(0, 0, 0, 0.125);
+        }
+
+        100% {
+          background-color: white;
+        }
+      }
+
+      &.js-content-loaded {
+        min-height: unset;
+        animation: none;
+      }
+
+      .comment {
+        padding: var(--spacer-300);
+        border: 1px solid hsl(var(--clr-neu-500) / 0.25);
+
+        &:not(:last-child) {
+          margin-block-end: var(--spacer-300);
+        }
+
+        &__header {
+          margin-block-end: var(--spacer-300);
+          display: flex;
+          align-items: flex-end;
+          gap: var(--spacer-300);
+        }
+
+        &__author-name {
+          color: hsl(var(--clr-pr-700));
+        }
+
+        &__body {
+          white-space: pre-line;
+        }
+      }
+    }
+  }
+}

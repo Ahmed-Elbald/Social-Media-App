@@ -1,0 +1,51 @@
+@use "../abstracts" as *;
+
+.c-dropdown {
+  --dropdownBg: #{map-get($map: $dropdown, $key: bgClr)};
+  --arrowHeight: #{map-get($map: $dropdown, $key: arrowHeight)};
+  --arrowOffset: #{map-get($map: $dropdown, $key: arrowOffset)};
+
+  position: relative;
+
+  &__list {
+    position: absolute;
+    top: calc(100% + var(--spacer-200));
+    inset-inline-end: 0;
+    @include createBox(0);
+    @include hide();
+    z-index: 1;
+
+    &.js-show-up {
+      @include showUp();
+    }
+
+    &[data-triangle="true"] {
+      top: calc(100% + var(--arrowHeight) + var(--arrowOffset));
+
+      &::before {
+        @include pseudoElement("");
+        bottom: 100%;
+        inset-inline-end: var(--arrowOffset);
+        @include triangle(var(--arrowHeight), var(--dropdownBg), bottom);
+        z-index: -1;
+      }
+    }
+  }
+
+  &__item {
+    --lineClr: #{map-get($map: $dropdown, $key: lineClr)};
+    --padding-block: #{map-get($map: $dropdown, $key: itemPaddingBlock)};
+
+    width: 100%;
+    padding-inline: map-get($map: $dropdown, $key: itemPaddingInline);
+    display: flex;
+    align-items: center;
+    gap: map-get($map: $dropdown, $key: itemContentGap);
+    color: map-get($map: $dropdown, $key: color);
+    @include lineBetween();
+
+    &:is(:hover, :focus) {
+      color: map-get($map: $dropdown, $key: itemActiveClr);
+    }
+  }
+}
