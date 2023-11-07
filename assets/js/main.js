@@ -8,7 +8,7 @@ import { changeFontsize, defaultFontSize, togglePageTheme } from "./abstracts/st
 import { getUserImg } from "./markup/posts.js";
 
 // Global Variables For All The Pages
-window.pagePathName = window.location.pathname;
+window.pagePathName = window.location.pathname.match(/(?<!^)\/.*\.html/)[0];
 window.currentUserData = JSON.parse(
   localStorage.getItem("postItUserData")
 );
@@ -26,8 +26,6 @@ window.currentUserData = JSON.parse(
 
 function handleRouting() {
 
-  console.log(pagePathName)
-  return;
   if (currentUserData) { // If the user is logged in
 
     // If they try to navigate to the "Signup" or "Login" pages
