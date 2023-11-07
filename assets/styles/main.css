@@ -839,6 +839,7 @@ template {
 }
 .l-section:is([data-name=hero], [data-height=fill]) {
   min-height: 100vh;
+  min-height: 100svh;
   display: flex;
   justify-content: center;
   align-items: center;
