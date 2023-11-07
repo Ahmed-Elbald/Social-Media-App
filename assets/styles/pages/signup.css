@@ -7,7 +7,7 @@
 }
 .signup-page #profile-img-input {
   position: relative;
-  margin-block: var(--spacer-300) var(--spacer-700);
+  margin-block: var(--spacer-300) var(--spacer-500);
 }
 .signup-page #profile-img-input .c-img-input {
   --clusterSpacer: var(--spacer-200);

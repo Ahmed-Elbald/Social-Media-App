@@ -3,7 +3,7 @@ import { animateSubmitBtn, showPageContent } from "../abstracts/styles.js";
 import { createErrorMessage, errorMsgs, validateFormData } from "../auth/formValidation.js";
 import { makeRequest, getRequestURL } from "../auth/requests.js";
 import { logUserIn } from "../auth/authorization.js";
-import { createLightbox, createPopup } from "../components/popups.js";
+import { createPopup } from "../components/popups.js";
 import { getLightboxMarkup } from "../markup/popups.js";
 
 showPageContent();

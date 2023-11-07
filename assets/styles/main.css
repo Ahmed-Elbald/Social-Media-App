@@ -1645,7 +1645,7 @@ input[type=range]::-moz-range-thumb {
   padding: var(--spacer-300);
   padding-inline-end: var(--spacer-700);
   border-radius: 0 var(--radius-regular) var(--radius-regular) 0;
-  box-shadow: var(--shadow-deviatedsomeuser2323);
+  box-shadow: var(--shadow-deviated);
   background-color: hsl(var(--clr-neu-100));
   color: hsl(var(--clr-acc-400));
   transition-duration: 500ms;
