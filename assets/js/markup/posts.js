@@ -93,7 +93,7 @@ function getPostDetails(postData, postAuthorData) {
   return `
     <div class="c-post__details">
       <address class="c-post__author-name">
-        <a href="/profile.html?userID=${postAuthorData["id"]}">
+        <a href="./profile.html?userID=${postAuthorData["id"]}">
           ${postAuthorData["name"]}
           <span class="u-sr-only">'s profile</span>
         </a>
