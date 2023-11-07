@@ -49,6 +49,7 @@ function handleRouting() {
 
 function getCurrentPath() {
 
+  console.log(pagePathName)
   if (
     pagePathName === "/login.html" ||
     pagePathName === "/index.html" ||
