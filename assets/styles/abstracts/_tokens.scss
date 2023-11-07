@@ -68,7 +68,14 @@ $dropdown: (
 // Sections
 $section: (
   paddingBlock:
-    clamp(var(--spacer-700), calc(var(--spacer-600) + 2vw), var(--spacer-1200)),
+    calc(
+      var(--mainHeaderHeight, 0px) +
+        clamp(
+          var(--spacer-700),
+          calc(var(--spacer-600) + 2vw),
+          var(--spacer-1200)
+        )
+    ),
 );
 
 // Signing Form

@@ -2,6 +2,16 @@
 export const defaultFontSize = 55;
 export const fontSizeOffset = 15;
 
+// Getting the height of the header
+const mainHeader = document.querySelector("header[data-page='landing']");
+if (mainHeader) {
+  document.documentElement.style.setProperty(
+    "--mainHeaderHeight",
+    mainHeader.clientHeight + "px"
+  );
+}
+
+// Functions
 export function showPageContent() {
 
   // Show the content of the page

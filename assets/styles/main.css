@@ -835,8 +835,8 @@ template {
 }
 
 .l-section {
-  --padding-block: clamp(var(--spacer-700), var(--spacer-600) + 2vw, var(--spacer-1200));
-  padding-block: var(--padding-block);
+  --padding-block: ;
+  padding-block: calc(var(--mainHeaderHeight, 0px) + clamp(var(--spacer-700), var(--spacer-600) + 2vw, var(--spacer-1200)));
 }
 .l-section:is([data-name=hero], [data-height=fill]) {
   min-height: 100vh;
@@ -844,9 +844,6 @@ template {
   display: flex;
   justify-content: center;
   align-items: center;
-}
-.l-section:is([data-name=hero], [data-height=fill])[data-name=hero] {
-  padding-block-start: calc(var(--padding-block) * 4);
 }
 
 .l-grid-centering {

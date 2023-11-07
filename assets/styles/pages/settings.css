@@ -1,9 +1,9 @@
 .main {
-  margin-block: clamp(var(--spacer-700), var(--spacer-600) + 2vw, var(--spacer-1200));
+  margin-block: calc(var(--mainHeaderHeight, 0px) + clamp(var(--spacer-700), var(--spacer-600) + 2vw, var(--spacer-1200)));
 }
 
 .page-heading {
-  margin-block-end: clamp(var(--spacer-700), var(--spacer-600) + 2vw, var(--spacer-1200));
+  margin-block-end: calc(var(--mainHeaderHeight, 0px) + clamp(var(--spacer-700), var(--spacer-600) + 2vw, var(--spacer-1200)));
 }
 
 .settings-section {
