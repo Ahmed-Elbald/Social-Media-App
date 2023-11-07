@@ -450,7 +450,7 @@ img {
   background-color: hsl(var(--clr-neu-100));
   border-radius: var(--radius-regular);
   box-shadow: var(--shadow-regular);
-  z-index: 2;
+  z-index: 3;
 }
 .c-accessibility-link:focus {
   top: 20px;
@@ -472,6 +472,7 @@ img {
   opacity: 0;
   pointer-events: none;
   visibility: hidden;
+  z-index: 1;
 }
 .c-stt-btn.js-show-up {
   visibility: visible;
@@ -917,15 +918,13 @@ template {
   padding-bottom: var(--spacer-300);
   background-color: hsl(var(--clr-neu-100));
   box-shadow: var(--shadow-regular);
-  z-index: 1;
+  z-index: 2;
 }
-@media (min-width: 992px) {
-  .c-primary-header[data-page=landing] {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-  }
+.c-primary-header[data-page=landing] {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
 }
 .c-primary-header__inner {
   display: flex;
@@ -1348,8 +1347,12 @@ input[type=range]::-moz-range-thumb {
   padding-block-end: var(--spacer-300);
   overflow: hidden;
   opacity: 0;
-  z-index: 3;
+  z-index: 4;
   background-color: var(--overlayBgClr);
+  -webkit-backdrop-filter: blur(2px);
+  -moz-backdrop-filter: blur(2px);
+  -ms-backdrop-filter: blur(2px);
+  -o-backdrop-filter: blur(2px);
   backdrop-filter: blur(2px);
   transition-duration: 375ms;
 }

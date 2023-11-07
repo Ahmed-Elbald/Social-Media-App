@@ -8,12 +8,10 @@
   z-index: map-get($map: $zIndex, $key: siteHeader);
 
   &[data-page="landing"] {
-    @include min-mq($layoutSwitchBp) {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-    }
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
   }
 
   &__inner {
