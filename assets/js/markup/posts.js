@@ -1,6 +1,3 @@
-// Import
-import { getRequestURL, makeRequest } from "../auth/requests.js"
-
 // Global Variables
 const postMenuOptions = [
   {

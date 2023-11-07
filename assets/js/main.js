@@ -8,7 +8,10 @@ import { changeFontsize, defaultFontSize, togglePageTheme } from "./abstracts/st
 import { getUserImg } from "./markup/posts.js";
 
 // Global Variables For All The Pages
-window.pagePathName = window.location.pathname.match(/(?<!^)\/.*/)[0];
+window.pagePathName =
+  window.location.pathname.match(/(?<!^)\/.*/) ?
+    window.location.pathname.match(/(?<!^)\/.*/)[0] :
+    window.location.pathname;
 window.currentUserData = JSON.parse(
   localStorage.getItem("postItUserData")
 );
