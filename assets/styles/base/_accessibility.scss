@@ -26,6 +26,7 @@
   color: map-get($map: $sttBtn, $key: color);
   @include prefix(text-stroke, 1px);
   @include hide();
+  z-index: 1;
 
   &.js-show-up {
     @include showUp();
