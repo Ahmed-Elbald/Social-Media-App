@@ -26,6 +26,8 @@ window.currentUserData = JSON.parse(
 
 function handleRouting() {
 
+  console.log(pagePathName)
+  return;
   if (currentUserData) { // If the user is logged in
 
     // If they try to navigate to the "Signup" or "Login" pages
@@ -49,7 +51,6 @@ function handleRouting() {
 
 function getCurrentPath() {
 
-  console.log(pagePathName)
   if (
     pagePathName === "/login.html" ||
     pagePathName === "/index.html" ||
