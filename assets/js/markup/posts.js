@@ -23,7 +23,7 @@ export function getPostMarkup(postData) {
 
   return `
     <!-- Post Heading -->
-    <h2 class="u-sr-only">This is a post by ${postAuthorData["name"]}</h2>
+    <h3 class="u-sr-only">This is a post by ${postAuthorData["name"]}</h3>
     ${getPostHeader(postData, postAuthorData)}
   
     <!-- Post Body -->
