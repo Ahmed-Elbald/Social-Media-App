@@ -166,21 +166,18 @@ function getPostInfo(postData) {
     <div class="c-post__info">
   
       <!-- Post Comments Count -->
-      ${getPostComments(postData)}
+      ${getPostComments(postData["comments_count"])}
   
       <!-- Post Tags -->
-      ${getPostTags(postData)}
+      ${getPostTags(postData["tags"])}
     </div>
     `;
 }
 
-function getPostComments(postData) {
-  let postID = postData["id"];
-  const commentsCount = postData["comments_count"];
-
+function getPostComments(commentsCount) {
   return `
     <button class="c-post__comments-btn js-show-comments"
-      type="button" data-post-id="${postID}" data-fill="commentsCount">
+      type="button"" data-fill="commentsCount">
       ${formatCommentsCount(commentsCount)}
     </button>
     `;
@@ -201,13 +198,16 @@ export function formatCommentsCount(postCommentsCount) {
   return `${screenReaderPrefix} ${postCommentsCount} comments <span class="u-sr-only">, click to display them</span>`;
 }
 
-function getPostTags(postData) {
+function getPostTags(postTags) {
 
-  let postTagsMarkup = postData["tags"].reduce((previous, current) => {
+  let postTagsMarkup = postTags.reduce((previous, current) => {
     return previous + `<span class="c-post__tag">${current["name"]}</span>`;
   }, "")
 
-  return `
+  if (postTagsMarkup === "")
+    return ""
+  else
+    return `
     <div class="c-post__tags l-flex-cluster" style="--clusterSpacer: var(--spacer-100)">
       ${postTagsMarkup}
     </div>
@@ -221,7 +221,6 @@ export function getCommentMarkup(comment) {
   const author = comment["author"]
 
   return `
-  <!-- Comment ${comment.id} -->
   <li>
     <article class="comment">
         <h4 class="u-sr-only">A comment by ${author["name"]}</h4>

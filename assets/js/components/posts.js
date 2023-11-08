@@ -377,7 +377,7 @@ async function handleCommentsDisplay() {
       return {
         id: comment["id"],
         body: comment["body"],
-        craetedAt: comment["created_at"],
+        createdAt: comment["created_at"],
         author:
           await makeRequest({ url: getRequestURL("getUser", comment["author_id"]) })
             .then(response => response.data)
