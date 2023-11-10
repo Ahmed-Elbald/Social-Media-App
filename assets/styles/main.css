@@ -190,6 +190,11 @@ body {
   opacity: 0;
   pointer-events: none;
   visibility: hidden;
+  -webkit-line-break: anywhere;
+  -moz-line-break: anywhere;
+  -ms-line-break: anywhere;
+  -o-line-break: anywhere;
+  line-break: anywhere;
 }
 @supports (box-shadow: 0 0 5px black) {
   body {
@@ -978,6 +983,7 @@ template {
   gap: var(--spacer-200);
   color: hsl(var(--clr-neu-500));
   padding-block: var(--padding-block);
+  line-break: auto;
 }
 .c-dropdown__item:not([data-last=true]) {
   border-bottom: 1px solid var(--lineClr);

@@ -43,6 +43,7 @@
     gap: map-get($map: $dropdown, $key: itemContentGap);
     color: map-get($map: $dropdown, $key: color);
     @include lineBetween();
+    line-break: auto;
 
     &:is(:hover, :focus) {
       color: map-get($map: $dropdown, $key: itemActiveClr);

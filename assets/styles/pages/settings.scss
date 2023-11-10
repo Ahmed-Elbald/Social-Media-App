@@ -19,7 +19,6 @@
     @include flexBetween();
     padding: var(--spacer-300);
     background-color: hsl(var(--clr-neu-300));
-    overflow-wrap: anywhere;
 
     h3 {
       font-weight: var(--fw-bold);
