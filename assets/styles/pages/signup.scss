@@ -3,6 +3,7 @@
 /* Sing Up Page */
 .signup-page {
   &__tagline {
+    line-break: auto;
     margin-bottom: var(--spacer-400);
   }
 

@@ -1,5 +1,6 @@
 /* Sing Up Page */
 .signup-page__tagline {
+  line-break: auto;
   margin-bottom: var(--spacer-400);
 }
 .signup-page__intro-statement {
