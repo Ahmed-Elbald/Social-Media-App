@@ -10,7 +10,7 @@
   opacity: 0;
   z-index: map-get($map: $zIndex, $key: popup);
   background-color: map-get($map: $popupFrame, $key: bgClr);
-  @include prefix(backdrop-filter, map-get($map: $popupFrame, $key: filter));
+  backdrop-filter: map-get($map: $popupFrame, $key: filter);
   transition-duration: map-get($map: $popupFrame, $key: transitionDuration);
 
   @include max-mq(mobile) {

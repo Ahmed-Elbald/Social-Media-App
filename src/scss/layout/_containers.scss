@@ -10,11 +10,11 @@ $differenceInPercnetage: 10%;
 // Containers
 .l-container {
   width: calc(100% - calc($inlineMargin * 2));
-  @include prefix(margin-inline, $inlineMargin);
+  margin-inline: $inlineMargin;
 
   @include min-mq(mobile) {
     width: min($minWidthPercentage, $minWidthStatic);
-    @include prefix(margin-inline, auto);
+    margin-inline: auto;
 
     &[data-width="narrow"] {
       width: min(
@@ -33,7 +33,7 @@ $differenceInPercnetage: 10%;
 }
 
 .l-center-switch {
-  @include prefix(margin-inline, auto);
+  margin-inline: auto;
   width: 100%;
   max-width: $smallContainersMaxWidth;
 
@@ -42,7 +42,7 @@ $differenceInPercnetage: 10%;
   }
 
   @include smOnly($layoutSwitchBp) {
-    @include prefix(margin-inline, 0);
+    margin-inline: 0;
     text-align: unset;
   }
 }

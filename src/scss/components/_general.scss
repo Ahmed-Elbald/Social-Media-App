@@ -24,7 +24,7 @@
     inset-inline-end: 0;
     background-color: map-get($map: $errorMsg, $key: btnBgClr);
     color: map-get($map: $errorMsg, $key: btnClr);
-    -webkit-text-stroke: map-get($map: $errorMsg, $key: btnStroke);
+    @include prefix(text-stroke, map-get($map: $errorMsg, $key: btnStroke));
   }
 }
 

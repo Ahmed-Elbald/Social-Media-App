@@ -5,7 +5,6 @@ import connect from "gulp-connect";
 import gulpSass from "gulp-sass";
 import * as dartSass from "sass"
 import autoPrefixer from "gulp-autoprefixer";
-import gulpRename from "gulp-rename"
 
 // Variables
 const { src, dest } = gulp;
@@ -19,10 +18,7 @@ export default function cssify() {
             outputStyle: "compressed"
         })
             .on("error", sass.logError))
-        .pipe(autoPrefixer())
-        .pipe(gulpRename(function (path) {
-            path.exname = ".min.css"
-        }))
+        .pipe(autoPrefixer("last 5 versions"))
         .pipe(dest(paths.css.dest))
         .pipe(connect.reload());
 

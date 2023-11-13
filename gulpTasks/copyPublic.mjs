@@ -3,12 +3,12 @@ import paths from "./paths.mjs"
 import fs from "fs"
 
 // Variables
-const { cpSync } = fs;
+const { existsSync, cpSync } = fs;
 
 // Functions
 export default function copyPublic() {
 
-    for (let publicDir of paths.public) {
+    for (let publicDir of paths.publicDir) {
 
         if (existsSync(publicDir.dir)) {
             cpSync(
@@ -19,11 +19,5 @@ export default function copyPublic() {
         }
 
     }
-
-    cpSync(
-        paths.public.src,
-        paths.public.dest,
-        { recursive: true }
-    );
 
 }

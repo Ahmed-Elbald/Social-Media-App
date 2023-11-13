@@ -3,7 +3,7 @@
 /* Global */
 @font-face {
   font-family: "Cairo";
-  src: url(".././fonts/cairoVariableFont.woff2") format("woff2");
+  src: url("../assets/fonts/cairoVariableFont.woff2") format("woff2");
   font-weight: 200 1000;
 }
 
@@ -48,7 +48,7 @@ body {
   font-size: map-get($map: $body, $key: fs);
   letter-spacing: map-get($map: $body, $key: letterSpacing);
   @include hide();
-  @include prefix(line-break, anywhere);
+  line-break: anywhere;
 
   @supports (box-shadow: 0 0 5px black) {
     background-color: map-get($map: $body, $key: bgClrInit);

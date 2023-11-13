@@ -12,20 +12,21 @@ const paths = {
 
     css: {
         src: [
-            "./src/assets/scss/**/*.scss",
-            "!./src/assets/scss/vendor/**"
+            "./src/scss/**/*.scss",
+            "!./src/scss/vendor/**"
         ],
-        dest: "./dist/assets/css",
+        dest: "./dist/css",
     },
 
     js: {
-        src: "./src/assets/js/**/*.js",
-        dest: "./dist/assets/js",
+        src: "./src/js/**/*.js",
+        dest: "./dist/js",
     },
 
-    public: [
+    publicDir: [
         {
-            src: "./src/assets/fonts",
+            dir: "./src/assets/fonts/",
+            src: "./src/assets/fonts/",
             dest: "./dist/assets/fonts",
         }
     ],
@@ -34,7 +35,7 @@ const paths = {
         {
             dir: "./node_modules/normalize.css",
             src: "./node_modules/normalize.css",
-            dest: "./src/assets/scss/vendor/normalize",
+            dest: "./src/scss/vendor/normalize",
         }
     ]
 

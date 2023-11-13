@@ -229,7 +229,7 @@ input[type="range"] {
       top: var(--trackPadding);
       inset-inline-start: var(--trackPadding);
       height: var(--thumbDimention);
-      @include prefix(aspect-ratio, 1);
+      aspect-ratio: 1;
       border-radius: 50%;
       background-color: hsl(var(--clr-acc-400));
     }

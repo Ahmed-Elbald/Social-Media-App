@@ -20,8 +20,8 @@ $userImgClr: hsl(var(--clr-pr-700));
 
   img {
     border: 2px solid hsl(var(--clr-neu-300));
-    @include prefix(aspect-ratio, map-get($map: $postImg, $key: aspectRatio));
-    @include prefix(object-fit, contain);
+    aspect-ratio: map-get($map: $postImg, $key: aspectRatio);
+    object-fit: contain;
   }
 
   &[data-preview="true"] {
