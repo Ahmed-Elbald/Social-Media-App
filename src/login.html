@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- Meta Data -->
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+  <meta name="description" content="
+  Post it is the best place to share your stories and thoughts with the world 
+  and find a community that helps you with your life.
+  Log in now !" />
+
+  <!-- Favicon -->
+  <link rel="shortcut icon" href="./assets/images/logo.ico" type="image/x-icon" />
+
+  @@include("./templates/_head.html", {
+  pageName: "login",
+  title: "Log in",
+  hasPosts: false
+  })
+
+</head>
+
+<body>
+
+  <!-- Accessibility Stuff -->
+  @@include("./templates/components/_accessibility.html", {
+  addStpBtn: false
+  })
+
+  <!-- Site Header -->
+  @@include("./templates/layout/_header.html", {
+  loggedIn: false,
+  notLogged: {
+  link: "index",
+  linkText: "Sign up"
+  }
+  })
+
+  <!-- Main Content -->
+
+  <main class="login-page" id="main-content">
+
+    <!-- Hero Section -->
+    <section class="l-section" data-name="hero">
+      <div class="l-container">
+        <div class="l-grid-switch" style="
+              --rowGap: var(--spacer-800);
+              --columnGap: var(--spacer-1000);
+            ">
+
+          <!-- Login Page Form -->
+          <form class="c-signing-form l-center-switch" id="login-form">
+
+            <!-- Form Heading -->
+            <h1 class="c-signing-form__heading c-heading-4">
+              Log in to your account
+            </h1>
+
+            <!-- Form Content -->
+            <div class="c-signing-form__content">
+
+              <!-- Form Inputs -->
+              <section class="c-signing-form__fields">
+                <div class="c-signing-form__field c-input-group" data-column="fluid">
+                  <label for="username" class="c-form__label">username</label>
+                  <input class="c-form__control c-input" type="text" name="username" id="username"
+                    autocomplete="username" />
+                </div>
+                <div class="c-signing-form__field c-input-group" data-column="fluid">
+                  <label for="password" class="c-form__label">password</label>
+                  <input class="c-form__control c-input" type="password" name="password" id="password"
+                    autocomplete="new-password" />
+                </div>
+              </section>
+
+              <!-- Form Submit Button -->
+              <section>
+                <button type="submit" class="c-signing-form__submit-btn c-button" data-btn-type="primary">
+                  log in
+                </button>
+              </section>
+            </div>
+
+            <!-- Call To Action Paragraph -->
+            <p class="c-signing-form__cta">
+              don't have an account?
+              <a href="./index.html" class="c-page-link">sign up</a>
+            </p>
+
+          </form>
+
+          <!-- Login Page Hero Image -->
+          <div class="login-page__hero-img">
+
+            <!-- Image Source Attribution -->
+            <p>
+              image source:
+              <a href="http://www.freepik.com" target="_blank" rel="noopener noreferrer">Freepik</a>
+            </p>
+
+            <img src="./assets/images/hero-image.webp" alt="" />
+
+          </div>
+
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Site Footer -->
+  @@include("./templates/layout/_footer.html")
+
+</body>
+
+</html>

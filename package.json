@@ -1,0 +1,33 @@
+{
+  "name": "gulp",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "esmify": "^2.1.1",
+    "gulp": "^4.0.2",
+    "gulp-autoprefixer": "^9.0.0",
+    "gulp-bro": "^2.0.0",
+    "gulp-connect": "^5.7.0",
+    "gulp-file-include": "^2.3.0",
+    "gulp-html-minifier": "^0.1.8",
+    "gulp-if": "^3.0.0",
+    "gulp-imagemin": "^9.0.0",
+    "gulp-rename": "^2.0.0",
+    "gulp-sass": "^5.1.0",
+    "gulp-terser": "^2.1.0",
+    "gulp-uglify-es": "^3.0.0",
+    "sass": "^1.69.5",
+    "uglifyify": "^5.0.2"
+  },
+  "dependencies": {
+    "dayjs": "^1.11.10",
+    "normalize.css": "^8.0.1"
+  }
+}

@@ -1,0 +1,27 @@
+<ul>
+
+    <!-- Skip To Main Content Link -->
+    <li>
+        <a class="c-accessibility-link" href="#main-content">
+            skip to main content
+        </a>
+    </li>
+
+    <!-- Element To Notify The User Of Updates On The Page -->
+    <li>
+        <p class="c-srn js-sr-notifier"></p>
+    </li>
+
+    @@if (addStpBtn === true) {
+    <!-- Scroll To Top Button -->
+    <li>
+        <button class="c-stt-btn js-stt" type="button">
+            <i class="bi bi-arrow-up" aria-hidden="true"></i>
+            <span class="u-sr-only">
+                Scroll to top
+            </span>
+        </button>
+    </li>
+    }
+
+</ul>

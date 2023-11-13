@@ -1,0 +1,70 @@
+@@if (!loggedIn) {
+<header class="c-primary-header" data-page="landing">
+    <div class="l-container">
+        <div class="c-primary-header__inner">
+
+            <!-- Site Logo -->
+            <img class="c-primary-header__logo" src="./assets/images/logo.svg" alt="Site logo" />
+
+            <!-- Link To Log In Page -->
+            <a href="./@@notLogged.link.html" class="c-page-link"> @@notLogged.linkText </a>
+
+        </div>
+    </div>
+</header>
+}
+@@if (loggedIn) {
+<header class="c-primary-header">
+    <div class="l-container">
+        <div class="c-primary-header__inner">
+
+            <!-- Link To The Home Page -->
+            <a href="./home.html" id="homepage-link">
+                <img src="./assets/images/logo.svg" alt="">
+                <span class="u-sr-only">Home page</span>
+            </a>
+
+            <!-- Site Navigation -->
+            <nav class="c-dropdown">
+
+                <!-- Navigation Toggler -->
+                <button class="c-dropdown__toggler js-dropdown-toggler" type="button" aria-controls="user-menu"
+                    aria-expanded="false">
+                    <div class="js-current-user-img"></div>
+                    <span class="u-sr-only">
+                        navigation toggler
+                    </span>
+                </button>
+
+                <!-- Navigation List -->
+                <ul class="c-dropdown__list" id="user-menu" data-triangle="true">
+                    <li>
+                        <a href="./profile.html" class="c-dropdown__item"
+                            aria-current="@@if (context.currentPage === 'profile') {page}">
+                            <i class="bi bi-person-circle" aria-hidden="true"></i>
+                            <span>profile</span>
+                            <span class="u-sr-only"> page</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="./settings.html" class="c-dropdown__item"
+                            aria-current="@@if (context.currentPage === 'settings') {page}">
+                            <i class="bi bi-gear" aria-hidden="true"></i>
+                            <span>settings</span>
+                            <span class="u-sr-only"> page</span>
+                        </a>
+                    </li>
+                    <li>
+                        <button type="button" class="c-dropdown__item" data-last="true" id="logout-btn">
+                            <i class="bi bi-box-arrow-right" aria-hidden="true"></i>
+                            <span>logout</span>
+                        </button>
+                    </li>
+                </ul>
+
+            </nav>
+
+        </div>
+    </div>
+</header>
+}

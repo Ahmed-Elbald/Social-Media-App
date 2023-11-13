@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <!-- Meta Data -->
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+  <meta name="description" content="
+  Post it is the best place to share your stories and thoughts with the world 
+  and find a community that helps you with your life.
+  A preview of your file" />
+
+  <!-- Favicon -->
+  <link rel="shortcut icon" href="./assets/images/logo.ico" type="image/x-icon">
+
+  @@include("./templates/_head.html", {
+  pageName: "profile",
+  title: "Profile",
+  hasPosts: true
+  })
+
+
+</head>
+
+<body>
+
+  <!-- Accessibility Stuff -->
+  @@include("./templates/components/_accessibility.html", {
+  addStpBtn: true
+  })
+
+  <!-- Site Header -->
+  @@include("./templates/layout/_header.html", {
+  loggedIn: true,
+  currentPage: "profile"
+  })
+
+  <!-- Main Content -->
+  <main class="main">
+
+    <!-- User Info. Section -->
+    <section class="l-section user-info-section">
+      <div class="l-container" data-width="narrow">
+
+        <!-- Section Heading -->
+        <h1 class="u-sr-only">
+          User profile
+        </h1>
+
+        <div class="user-info js-user-info l-grid-spacer" style="--gridSpacer: var(--spacer-400)" data-img="true">
+
+          <!-- User Image -->
+          <div class="user-info__img js-user-info-img">
+
+            <!-- Image Overlay -->
+            <div class="c-overlay" data-hidden="true">
+              <button class="c-overlay__btn js-lightbox-opener u-fs-900 u-text-neu-700" type="button"
+                data-target="user-img">
+                <i class="bi bi-eye" aria-hidden="true"></i>
+                <span class="u-sr-only">
+                  Show the user profile image in a lightbox
+                </span>
+              </button>
+            </div>
+
+          </div>
+
+          <!-- User Data -->
+          <address data-last="true">
+
+            <!-- Name -->
+            <p class="user-info__name c-heading-3 u-text-capitalize">
+              <span class="u-sr-only">name: </span>
+              <span data-fill="name"></span>
+            </p>
+
+            <!-- Username -->
+            <p class="user-info__username c-heading-3 u-text-default">
+              <span class="u-sr-only">username: </span>
+              <span data-fill="username"></span>
+            </p>
+
+          </address>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- User Posts -->
+    <section class="l-section">
+      <div class="l-container" data-width="narrow">
+
+        <!-- Section Heading -->
+        <h2 class="u-sr-only">
+          Your Posts
+        </h2>
+
+        <!-- Posts Container -->
+        <ul class="js-posts-container l-margin-spacer" style="
+        --marginSpacer: var(--spacer-700)
+        "></ul>
+
+      </div>
+    </section>
+
+  </main>
+
+
+</body>
+
+</html>

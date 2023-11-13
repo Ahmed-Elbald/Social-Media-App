@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <!-- Meta Data -->
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+  <meta name="description" content="
+  Post it is the best place to share your stories and thoughts with the world 
+  and find a community that helps you with your life.
+  Manage profile settings." />
+
+  <!-- Favicon -->
+  <link rel="shortcut icon" href="./assets/images/logo.ico" type="image/x-icon">
+
+  @@include("./templates/_head.html", {
+  pageName: "settings",
+  title: "Settings",
+  hasPosts: false
+  })
+
+
+</head>
+
+<body>
+
+  <!-- Accessibility Stuff -->
+  @@include("./templates/components/_accessibility.html", {
+  addStpBtn: false
+  })
+
+  <!-- Site Header -->
+  @@include("./templates/layout/_header.html", {
+  loggedIn: true,
+  currentPage: "settings"
+  })
+
+  <!-- Main Content -->
+  <main class="main">
+    <div class="l-container" data-width="narrow">
+
+      <!-- Page Heading -->
+      <h1 class="page-heading c-heading-2 u-text-pr-700 u-text-center" data-sm-only>settings</h1>
+
+      <div class="l-margin-spacer" style="--marginSpacer: var(--spacer-700)">
+
+        <!-- Personal Info Section -->
+        <section class="settings-section" data-content="personal-info">
+
+          <!-- Section Heading -->
+          <h2 class="settings-section__heading c-heading-4">
+            personal information
+          </h2>
+
+          <!-- Section Settings List -->
+          <ul class="settings-section__list l-margin-spacer" style="--marginSpacer: var(--spacer-100)">
+            <li class="settings-section__item">
+              <div>
+                <h3>
+                  name
+                </h3>
+                <p class="u-text-capitalize" data-fill="name">
+                  ahmed saad
+                </p>
+              </div>
+            </li>
+            <li class="settings-section__item">
+              <div>
+                <h3>
+                  email
+                </h3>
+                <p class="u-text-default" data-fill="email">
+                  ahmedsaad112004cr@gamil.com
+                </p>
+              </div>
+            </li>
+            <li class="settings-section__item">
+              <div>
+                <h3>
+                  username
+                </h3>
+                <p class="u-text-default" data-fill="username">
+                  ahmed117cr
+                </p>
+              </div>
+            </li>
+          </ul>
+        </section>
+
+        <!-- Security Section -->
+        <section class="settings-section" data-content="security">
+
+          <!-- Section Heading -->
+          <h2 class="settings-section__heading c-heading-4">
+            security
+          </h2>
+
+          <!-- Section Settings List -->
+          <ul class="settings-section__list l-margin-spacer" style="--marginSpacer: var(--spacer-100)">
+            <li class="settings-section__item">
+              <div>
+                <h3>
+                  change password
+                </h3>
+              </div>
+              <button class="settings-section__item__btn js-account-data-modifier" type="button"
+                data-action="passwordEdit" aria-haspopup="dialog">
+                <span class="u-sr-only">
+                  change your password
+                </span>
+                <i class="bi bi-caret-right-fill u-text-neu-600" aria-hidden="true"></i>
+              </button>
+            </li>
+            <li class="settings-section__item">
+              <div>
+                <h3>
+                  change username
+                </h3>
+              </div>
+              <button class="settings-section__item__btn js-account-data-modifier" data-action="usernameEdit"
+                type="button" aria-haspopup="dialog">
+                <span class="u-sr-only">
+                  change your username
+                </span>
+                <i class="bi bi-caret-right-fill u-text-neu-600" aria-hidden="true"></i>
+              </button>
+            </li>
+            <li class="settings-section__item">
+              <div>
+                <h3>
+                  change emeil
+                </h3>
+              </div>
+              <button class="settings-section__item__btn js-account-data-modifier" data-action="emailEdit" type="button"
+                aria-haspopup="dialog">
+                <span class="u-sr-only">
+                  change your emeil
+                </span>
+                <i class="bi bi-caret-right-fill u-text-neu-600" aria-hidden="true"></i>
+              </button>
+            </li>
+          </ul>
+        </section>
+
+        <!-- Appearance Section -->
+        <section class="settings-section" data-content="lang-and-appear">
+
+          <!-- Section Heading -->
+          <h2 class="settings-section__heading c-heading-4">
+            appearance
+          </h2>
+
+          <!-- Section Settings List -->
+          <ul class="settings-section__list l-margin-spacer" style="--marginSpacer: var(--spacer-100)">
+            <li class="settings-section__item">
+              <div>
+                <h3>
+                  dark mode
+                </h3>
+              </div>
+              <div class="settings-section__theme-toggler c-checkbox">
+                <label for="theme-toggler" aria-label="Enable dark mode on the website"></label>
+                <input type="checkbox" name="theme-toggler" id="theme-toggler">
+              </div>
+            </li>
+            <li class="settings-section__item">
+              <div>
+                <h3>
+                  font size
+                </h3>
+              </div>
+              <div class="settings-section__fs-modifier">
+                <label class="u-sr-only" for="fs-modifier">change the font size of the website</label>
+                <input type="range" name="fs-modifier" id="fs-modifier">
+              </div>
+            </li>
+          </ul>
+        </section>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- Site Footer -->
+  @@include("./templates/layout/_footer.html")
+
+</body>
+</html>

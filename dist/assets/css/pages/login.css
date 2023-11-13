@@ -1,0 +1,1 @@
+.login-page__hero-img{position:relative}@media(max-width: 992px){.login-page__hero-img{display:none}}.login-page__hero-img p{position:absolute;bottom:0;inset-inline-end:0;opacity:0;pointer-events:none;font-size:var(--fs-300)}.login-page__hero-img:hover p{visibility:visible;opacity:1;pointer-events:all}

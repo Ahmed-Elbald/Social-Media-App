@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <!-- Meta Data -->
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+  <meta name="description" content="
+  Post it is the best place to share your stories and thoughts with the world 
+  and find a community that helps you with your life.
+  Latest posts by users" />
+
+  <!-- Favicon -->
+  <link rel="shortcut icon" href="./assets/images/logo.ico" type="image/x-icon">
+
+  @@include("./templates/_head.html", {
+  pageName: "home",
+  title: "Home",
+  hasPosts: true
+  })
+
+</head>
+
+<body>
+
+  <!-- Accessibility Stuff -->
+  @@include("./templates/components/_accessibility.html", {
+  addStpBtn: true
+  })
+
+  <!-- Site Header -->
+  @@include("./templates/layout/_header.html", {
+  loggedIn: true
+  })
+
+  <!-- Main Content -->
+  <main id="main-content">
+
+    <!-- Post Creation Area -->
+    <section class="l-section new-post-section">
+      <div class="l-container" data-width="narrow">
+        <div class="u-box">
+
+          <!-- Section Heading -->
+          <h2 class="u-sr-only">
+            Create a new post
+          </h2>
+
+          <!-- New Post Prompt -->
+          <p aria-hidden="true">
+            <span class="u-text-pr-700 u-text-capitalize" data-fill="name"></span>,
+            Got something to say? share it now!
+          </p>
+
+          <!-- New Post Button -->
+          <button class="c-button js-new-post-btn" data-btn-type="input-like" type="button" aria-haspopup="dialog">
+            new post
+          </button>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- Latest Posts Section -->
+    <section class="l-section">
+      <div class="l-container" data-width="narrow">
+
+        <!-- Section Heading -->
+        <h2 class="u-sr-only">
+          Latest posts
+        </h2>
+
+        <!-- Posts Container -->
+        <ul class="js-posts-container l-margin-spacer" style="
+        --marginSpacer: var(--spacer-700)
+        "></ul>
+
+      </div>
+    </section>
+
+  </main>
+
+
+</body>
+
+</html>

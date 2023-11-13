@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- Meta Data -->
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+  <meta name="description" content="
+  Post it is the best place to share your stories and thoughts with the world 
+  and find a community that helps you with your life.
+  Sign up now !
+  " />
+
+  <!-- Favicon -->
+  <link rel="shortcut icon" href="./assets/images/logo.ico" type="image/x-icon" />
+
+  @@include("./templates/_head.html", {
+  pageName: "signup",
+  title: "Sign up",
+  hasPosts: false
+  })
+
+</head>
+
+<body>
+
+  <!-- Accessibility Stuff -->
+  @@include("./templates/components/_accessibility.html", {
+  addStpBtn: false
+  })
+
+
+  <!-- Site Header -->
+  @@include("./templates/layout/_header.html", {
+  loggedIn: false,
+  notLogged: {
+  link: "login",
+  linkText: "Log in"
+  }
+  })
+
+  <!-- Main Content -->
+  <main class="signup-page" id="main-content">
+
+    <!-- Hero Section -->
+    <section class="l-section" data-name="hero">
+      <div class="l-container">
+        <div class="l-grid-switch" style="
+              --rowGap: var(--spacer-800);
+              --columnGap: var(--spacer-1000);
+            ">
+
+          <!-- Sign Up Page Intro -->
+          <div class="signup-page__intro-wrapper l-center-switch" data-center-text data-sm-only>
+
+            <!-- Page Tagling -->
+            <h1 class="signup-page__tagline c-heading-2 u-text-pr-700">
+              Share it with the world!
+            </h1>
+
+            <!-- Site Description -->
+            <p class="signup-page__intro-statement">
+              post it is the best place to share your stories and thoughts
+              with the world and find a community that helps you with your
+              life.
+            </p>
+
+          </div>
+
+          <!-- Sign Up Page Form -->
+          <form class="c-signing-form l-center-switch" id="signup-form">
+
+            <!-- Form Heading -->
+            <h2 class="c-signing-form__heading c-heading-4">
+              sign for a new account now!
+            </h2>
+
+            <!-- Form Content -->
+            <div class="c-signing-form__content">
+
+              <p class="c-signing-form__hint u-sr-only">
+                a * after the name of the input means it's required,
+                meaning: you can not leave it empty
+              </p>
+
+              <!-- Form Inputs -->
+              <section class="c-signing-form__fields">
+                <div class="c-signing-form__field c-input-group">
+                  <label for="firstname" class="c-signing-form__label">first name *</label>
+                  <input class="c-signing-form__control c-input" type="text" name="firstname" id="firstname" />
+                </div>
+                <div class="c-signing-form__field c-input-group">
+                  <label for="lastname" class="c-signing-form__label">last name *</label>
+                  <input class="c-signing-form__control c-input" type="text" name="lastname" id="lastname" />
+                </div>
+                <div class="c-signing-form__field c-input-group" data-column="fluid">
+                  <label for="username" class="c-signing-form__label">username *</label>
+                  <input class="c-signing-form__control c-input" type="text" name="username" id="username"
+                    aria-details="username-hint" autocomplete="username" data-validation-key="username" />
+                  <p class="u-sr-only js-input-hint" data-hint-key="username" id="username-hint"></p>
+                </div>
+                <div class="c-signing-form__field c-input-group" data-column="fluid">
+                  <label for="email" class="c-signing-form__label">email *</label>
+                  <input class="c-signing-form__control c-input" type="text" name="email" id="email"
+                    autocomplete="email" data-validation-key="email" />
+                </div>
+                <div class="c-signing-form__field c-input-group">
+                  <label for="password" class="c-signing-form__label">password *</label>
+                  <input class="c-signing-form__control c-input" type="password" name="password" id="password"
+                    aria-details="password-hint" autocomplete="new-password" id="password"
+                    data-validation-key="password" />
+                  <p class="u-sr-only js-input-hint" data-hint-key="password" id="password-hint"></p>
+                </div>
+                <div class="c-signing-form__field c-input-group">
+                  <label for="password-confirmation" class="c-signing-form__label">confirm password *</label>
+                  <input class="c-signing-form__control c-input" type="password" name="password-confirmation"
+                    id="password-confirmation" />
+                </div>
+                <div class="c-signing-form__field" id="profile-img-input" data-column="fluid">
+                  <div class="c-img-input">
+                    <label for="profile-img" data-btn-type="dialog-opener">
+                      <i class="bi bi-card-image u-text-pr-700" aria-hidden="true"></i>
+                      &nbsp;&nbsp;Attach a profile image
+                    </label>
+                    <input type="file" accept="image/png, image/jpg, image/jpeg" name="profile-img" id="profile-img" />
+                    <button class="c-img-remover js-img-remover" type="button">
+                      <span class="u-sr-only">remove selected image</span>
+                      <i class="bi bi-trash3" aria-hidden="true"></i>
+                    </button>
+                  </div>
+                </div>
+              </section>
+
+              <!-- Form Submit Button -->
+              <section>
+                <button type="submit" class="c-button c-signing-form__submit-btn" data-btn-type="primary">
+                  sign up
+                </button>
+              </section>
+            </div>
+
+            <!-- Call To Action Paragraph -->
+            <p class="c-signing-form__cta">
+              already have an account?
+              <a href="./login.html" class="c-page-link">log in</a>
+            </p>
+
+          </form>
+
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Site Footer -->
+  @@include("./templates/layout/_footer.html")
+
+</body>
+
+</html>
