@@ -75,7 +75,7 @@ $sizes: (
 );
 
 $layoutSwitchBp: tablet;
-$smallContainersMaxWidth: calc(
+$smContainersWidth: calc(
   map-get(
       $map: $breakpoints,
       $key: mobile,

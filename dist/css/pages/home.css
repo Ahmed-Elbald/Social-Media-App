@@ -1,1 +1,1 @@
-.new-post-section{padding-bottom:0}.new-post-section p{-webkit-margin-after:var(--spacer-200);margin-block-end:var(--spacer-200)}
+.new-post-section{padding-bottom:0}.new-post-section__inner{padding:var(--spacer-300);background-color:hsl(var(--clr-neu-100));border-radius:var(--radius-regular);-webkit-box-shadow:var(--shadow-regular);box-shadow:var(--shadow-regular)}.new-post-section p{-webkit-margin-after:var(--spacer-300);margin-block-end:var(--spacer-300)}

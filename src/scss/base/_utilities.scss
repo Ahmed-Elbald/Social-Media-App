@@ -1,10 +1,13 @@
 @use "../abstracts" as *;
 
 /* Utility Calsses */
+
+// Screen Reader Only
 .u-sr-only {
   @include screenReaderOnly();
 }
 
+// Text
 .u-text-center {
   @include textCenter();
 }
@@ -15,12 +18,14 @@
   }
 }
 
+// Border Radius
 @each $radius, $value in $border-radius {
   .u-radius-#{$radius} {
     border-radius: $value;
   }
 }
 
+// Colors
 @each $color, $colorVariants in $colors {
   @each $colorVariant, $value in $colorVariants {
     .u-text-#{$color}-#{$colorVariant} {
@@ -37,20 +42,14 @@
   }
 }
 
-.u-box {
-  @include createBox();
-}
-
-.u-highlight {
-  color: $highlightedTextClr;
-}
-
+// Box Shadow
 @each $shadow, $value in $box-shadow {
   .u-shadow-#{$shadow} {
     box-shadow: unquote($string: $value);
   }
 }
 
+// Fonts
 @each $fontFamily, $value in $fontFamilies {
   .u-ff-#{$fontFamily} {
     font-family: unquote($string: $value);

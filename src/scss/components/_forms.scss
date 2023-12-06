@@ -58,8 +58,7 @@
     display: inline-block;
     background-color: map-get($map: $imgInput, $key: bgClr);
     cursor: pointer;
-    outline: $focusStateOulineWidth solid transparent;
-    outline-offset: -$focusStateOulineWidth;
+    outline: var(--focusStateOulineWidth) solid transparent;
   }
 
   &:has(input:focus) label {

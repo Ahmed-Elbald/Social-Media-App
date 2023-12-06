@@ -7,6 +7,10 @@
 
   position: relative;
 
+  &__toggler {
+    outline-offset: var(--linksOutlineOffset);
+  }
+
   &__list {
     position: absolute;
     top: calc(100% + var(--spacer-200));

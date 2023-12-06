@@ -22,8 +22,7 @@ export function getPostMarkup(postData) {
   const postAuthorData = postData["author"];
 
   return `
-    <!-- Post Heading -->
-    <h3 class="u-sr-only">This is a post by ${postAuthorData["name"]}</h3>
+    <!-- Post Header -->
     ${getPostHeader(postData, postAuthorData)}
   
     <!-- Post Body -->
@@ -49,7 +48,10 @@ function getPostHeader(postData, postAuthorData) {
   return `
     <!-- Post Header -->
     <header class="c-post__header">
-  
+    
+      <!-- Post Title -->
+      <h3 class="u-sr-only">This is a post by ${postAuthorData["name"]}</h3>
+
       <!-- Post Author Image -->
       ${new XMLSerializer().serializeToString(
     getUserImg(
@@ -223,10 +225,13 @@ export function getCommentMarkup(comment) {
   return `
   <li>
     <article class="comment">
-        <h4 class="u-sr-only">A comment by ${author["name"]}</h4>
-        <!-- Comment Header -->
-        <header class="comment__header">
-        <!-- Comment Author Image -->
+    <!-- Comment Header -->
+    <header class="comment__header">
+
+      <!-- Comment Title -->
+      <h4 class="u-sr-only">A comment by ${author["name"]}</h4>
+
+      <!-- Comment Author Image -->
         <div class="comment__author-img">
             ${new XMLSerializer().serializeToString(
     getUserImg(author, `${author["name"]}'s profile image`)

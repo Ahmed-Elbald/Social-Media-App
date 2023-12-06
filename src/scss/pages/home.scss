@@ -3,8 +3,12 @@
 
 .new-post-section {
   padding-bottom: 0;
+  &__inner {
+    @include createBox();
+  }
+  // padding-bottom: 0;
 
   p {
-    margin-block-end: var(--spacer-200);
+    margin-block-end: var(--spacer-300);
   }
 }

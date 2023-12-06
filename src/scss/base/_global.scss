@@ -1,6 +1,13 @@
 @use "../abstracts" as *;
 
 /* Global */
+:root {
+  --focusStateOulineWidth: 2px;
+  --linksOutlineOffset: 1px;
+  --inputOutlineStyle: solid;
+  --controlsOutlineStyle: dashed;
+}
+
 @font-face {
   font-family: "Cairo";
   src: url("../assets/fonts/cairoVariableFont.woff2") format("woff2");
@@ -63,12 +70,19 @@ input,
 button,
 textarea,
 a {
-  outline-width: $focusStateOulineWidth;
+  outline-width: var(--focusStateOulineWidth);
   outline-color: transparent;
 
-  &:focus {
+  &:focus-visible {
     outline-color: currentColor;
     text-decoration: none;
+  }
+
+  @supports not selector(:focus-visible) {
+    &:focus {
+      outline-color: currentColor;
+      text-decoration: none;
+    }
   }
 }
 
@@ -77,17 +91,17 @@ button,
 textarea {
   display: block;
   border: none;
-  outline-offset: -1 * $focusStateOulineWidth;
+  outline-offset: calc(-1 * var(--focusStateOulineWidth));
 }
 
 input,
 textarea {
-  outline-style: $inputOutlineStyle;
+  outline-style: var(--inputOutlineStyle);
 }
 
 a,
 button {
-  outline-style: $controlsOutlineStyle;
+  outline-style: var(--controlsOutlineStyle);
 }
 
 textarea {
@@ -110,7 +124,7 @@ a {
   text-decoration: none;
   text-transform: inherit;
   color: inherit;
-  outline-offset: $linksOutlineOffset;
+  outline-offset: var(--linksOutlineOffset);
 }
 
 ul,

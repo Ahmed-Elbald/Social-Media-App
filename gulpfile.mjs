@@ -51,4 +51,4 @@ function watchFiles(cb) {
 
 
 export default series(serve, watchFiles);
-export { start, uglify }
+export { start }
